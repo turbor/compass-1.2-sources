@@ -1,0 +1,248 @@
+
+ Hoe werk ik in REL mode ?
+
+
+Als we een machinetaal programma maken met een compiler, dan is het een goed
+gebruik om deze meteen naar een .COM of .BIN file te compileren. Het nadeel op
+een MSX tekstverwerker is echter dat er, zeker onder de CP/M editors, maar 20 a
+30 kb tekst kunnen verwerker in een keer.
+
+Hier is echter al lang wat op gevonden: INCLUDE files. Dit zijn files, die
+tijdens het compileren door de compiler erbij geladen kunnen worden. In de
+source moet dan even de regel INCLUDE naam.ext worden opgegeven en alles loopt
+weer soepel. De .ext is overigens optioneel, maar is wel handig te vermelden,
+want de GEN80 compiler verwacht de extensie .GEN en de M80 compiler verwacht de
+.MAC extensie achter de namen van de sourcefiles.
+
+Het editten van tekst is nu wel eenvoudiger geworden, omdat we met kleine
+blokken tekst kunnen werken, maar het compileren duurt nog steeds lang. Een
+programmatekst van een kilobyteje of 100 duurt toch al gauw 5 minuten. Dit
+kunnen wij ons als top-programmeurs en snel-werkers niet veroorloven. De meest
+gebruikte oplossing is dan meestal, om meteen maar naar een ramdisk te  grijpen.
+
+Dat is natuurlijk niet DE oplossing, het zou makkelijker zijn als we de source
+in kleine stukken zouden kunnen compileren, om ze daarna in een keer bij elkaar
+te stoppen.
+
+Dit is mogelijk met de rel-mode, die de gen80 en m80 compiler ondersteunen. We
+moeten dan echter aan het eind alle kleine, apart gecompileerde, files weer aan
+elkaar kopppelen, dit doen we met l80. Het linken duurt maar een paar seconden.
+De meeste tijd gaat meestal zitten in het inladen en wegschrijven van de
+bestanden. Het linken duurt echt niet langer als een paar seconden. Het laden
+van de bestanden duurt trouwens ook niet zo lang, zo zijn op een bepaalde
+manier gecomprimeerd, waardoor ze heel erg kort blijven, terwijl de source-files
+veel langer zijn en veel meer tijd kosten om te compileren, omdat alles twee
+keer moet worden ingeladen.
+
+Nu zou je denken dat er zich een probleem voordoet. Als alle programma's vanaf
+hetzelfde adress gecompileerd zijn, dan kan je zew natuurlijk nooit op een ander
+adres gebruiken, dus kan je ze ook niet koppelen.
+
+Om dit toch te kunnen doen, zijn de, in rel-mode, gecompileerde programma's niet
+als opcode stroom opgeslagen, maar zijn ze op een speciale manier, nog compact
+ook, opgeslagen. Een aantal tellers binnen die file geven precies aan welk adres
+welke waarde moet krijgen, ten opzichte van het begin van de file.
+
+Daarom heet het nu ook rel-mode. REL staat voor relocateable, oftewel
+verplaatsbaar. Het programma kan door die speciale interne tellers op iedere
+adres in het geheugen worden geplaatst, de tellers zorgen er bij het linken voor
+dat alles op de juiste plaats komt.
+
+Er zijn meerdere soorten tellers. De belangrijkste is zeker de cseg-teller, cseg
+staat voor code-segment. Deze teller houd bij waar de source moet komen te
+staan. Een andere teller, de dseg (data-segment) teller houd bij maar de data
+moet komen. De data wordt bij het linken altijd VOOR de code geplaatst. Dit wil
+niet zeggen dat alle variabelen voor de code zelf komt, want de variabelen
+kunnen we ook gewoon als code compileren. We geven zelf met de CSEG en DSEG
+opcodes aan, welk deel van de source we in CSEG en welk deel in DSEG willen
+compileren.
+
+In praktijk komt het er op neer dat er alleen in CSEG mode gewerkt zal worden,
+welke overigens staandaard ingestelt staat. In de file van de linker wordt dan
+aangegeven dat de code-segment-counter op dat punt op 0000 staat. De rest van de
+source wordt dan relatief aan dat adres gecompileerd. Allerlei pointers geven
+aan welke adressen welke waarden moeten krijgen. Om hier wat meer inzicht in te
+krijgen, zal ik eerst het volgende even uiteen zetten:
+
+PUBLIC en EXTERNAL definities.
+
+Als we in rel-mode werken en we willen dan we routines en variabelen uit andere
+files kunnen gebruiken, dan moeten we voor de compiler aangeven, dat hij deze
+niet in deze files hoeft te zoeken, waar dat die buiten dit blok code om gemaakt
+zullen worden. De linker comtrolleert er natuurlijk op of dit ook zo is, anders
+komt deze met een melding aanzetten, dan een van de gevraagde routines of
+variabelen niet te vinden is. De linker weet het verschil overigens tussen een
+routine of variabele niet, het is hem allemaal eender.
+
+Het zal inmiddels wel duidelijk zijn hoop ik, dat alle blokken code in rel-mode
+gecompileerd moeten zijn.
+
+Als we een routine, die in dit blok code zit, door andere routines willen laten
+gebruiken, dan declareren we deze als PUBLIC. Willen we een routine gebruiken,
+die in een ander blok zit, dan declareren we deze als EXTERNAL, meestal afgekort
+tot EXTRN (gen80) of EXT (m80).
+
+Het is overzichtelijk om alle public en external definities aan het begin van
+het programma te zetten, maar ze mogen natuurlijk ook overal en nergens in het
+programma voorkomen, maar de kans op fouten is dan groter. Een public declaratie
+kan bij gen80 ook door twee keer een dubbele punt achter het label te zetten.
+
+Functies:
+
+Het gebruik maken van de rel-mode betekent niet alleen dat je in kleine stukken
+kan compileren, maar je kan er ook kant en klare modules mee maken. Een
+muismodule bijvoorbeeld. Je geeft in je documentatie die je erbij levert dan
+even aan welke routines je hoe en wanneer moet aanroepen, an hij kan zo in de
+commandline van de linker wordt geplaatst.
+
+
+Het compileren
+
+Hoe m80 precies werkt, is in de manual ervan te lezen, dezde gebruik ik zelf
+zoveel, daarom zal ik de voorbeelden, compatible voor gen80 maken.
+
+Om de gen80 compiler te laten weten dat we in rel-mode willen werken, moeten we
+een option switch meegeven. Dit is de R+ switch. Deze kan achter een punt-komma
+achter de naam worden opgegevens, maar kan ook als first-line-command in de
+source worden opgegeven. Verder is er die lastige .err file die gen80 aanmaakt
+en alleen door ed80 gelezen kan worden, deze kunnen we uitzetten met de Q
+switch. Een Q- en de hele .err file is weg.
+
+Het linken
+
+Het linken doe ik wel met het macro-80 pakket, met l80 om precies te zijn.
+Hierbij moeten ook een aantal switches worden opgegeven in de command line. In
+de voorbeelden in precies te zien waar welke moeten staan. De switches zijn:
+
+/N - Name: Dit is de naam waaronder de .com file moet worden opgegeven. Deze
+naam moet apart van de rest van de filenames worden opgegeven. Er mag GEEN
+extensie worden opgegeven, de linker slaat simpelweg vast als het wel wordt
+opgegeven.
+
+/E - Exit: Dit is het commando voor de linker, als hij klaar is met linken. De
+gelinkte file wordt dan weggeschreven en de linker worden verlaten, anders wordt
+de command-mode actief en moet deze met de hand worden verlaten.
+
+/P - Program addres: Hierop wordt begonnen met het linken. Standaard staat deze
+op adres 0103h (voor comfiles dus). De eerste drie bytes staan op 00 om daar
+later (handmatig) een jump neer te zetten, om het dseg blok heen. Gebruiken we
+deze niet, dan is het handig om de /P:100 op te geven.
+
+
+Enkele voorbeelden:
+
+GEN80 MIJNFILE ;R+, Q- ev:MIJNFILE.GEN
+GEN80 BINNAAM.BIN=MIJNFILE ;Q-
+
+Of: Eerste regel van de source:
+
+*B 4, Q-, R+
+
+* is een aanduiding voor de first-line-commands.
+B 4, betekent dat we maar 4Kb symbole table willen gebruiken (ruim genoeg!)
+Q- zet de .err file uit en
+R+ zet de rel-mode aan.
+
+De switches achter de ; hoeven dan niet meer te worden meegegeven, dus:
+
+GEN80 MIJNFILE
+
+Linken:
+
+L80 SAVENAME/N,MIJNFILE/E/P:100,FILE2,FILE3,FILE4
+
+Dit linkt de files mijnfile, file2, file3 en file4 aan elkaar vanaf adres 100h
+en schrijft het daarna weg onder de naam savename.com
+
+Een voorbeeld programma, twee aparte files worden gelinkt:
+
+PROG1:
+
+*B 4, Q-, R+
+;
+; PROG1
+;
+              CSEG
+;
+              EXTRN PRINT
+;
+PROG1         LD DE,TEKST
+              CALL PRINT
+              RET
+;
+TEKST         DEFM "Hallo !!$"
+;
+
+
+PROG2:
+
+*B 4, Q-, R+
+;
+; PROG2
+;
+              CSEG
+;
+              PUBLIC PRINT
+;
+PRINT         PUSH BC
+              LD C,9
+              CALL BDOS
+              POP BC
+              RET
+;
+
+Compileren:
+
+GEN80 PROG1
+GEN80 PROG2
+
+Linken:
+
+L80 PROG/N,PROG1/E/P:100,PROG2
+
+Opstarten:
+
+PROG
+
+
+Let op: Het vertalen van programma's die met het include-files principe gemaakt
+zijn, naar programma's die met rel-mode gecompileerd en gelinkt worden, is heel
+veel werk. Ik heb er laatst nog eens een hele avond aan besteed, want je mist
+binnen de korste keer een aantal routines en variabelen. Het is eenvoudiger om
+te beginnen met een programma en dan meteen in rel-mode te gaan werken, als
+achteraf alles te moeten vertalen.
+
+Het is natuurlijk nog steeds mogelijk om include-files te blijven gebruiken. Het
+gebruik maken van de rel-mode wil niet zeggen dat de include-files niet meer
+ondersteund worden.
+
+
+Nog enkele wenken:
+
+De labels lengte van de linker is 6 tekens! Houd dat goed in je achterhoofd,
+want voor je het weet heb je labels gemaakt als prtext1 en prtext2. De linker
+komt dan meteen met een %mutiple label definition: prtext% aanzetten.
+
+Het gaat heel eenvoudig als je met een batch-file compileert. MSX-DOS vergeet
+namelijk alle tekst die achter een [ of ] wordt opgegeven. Dus door met de tekst
+editor even een [ voor een van de regels in de batch te zetten, wordt een van de
+files niet meer gecompileerd. Mijn batch van ymodem20 ziet er zo uit:
+
+TURBO   (ik gebruik een gepatchte turbo-pascal compiler editor)
+PAUSE   (wil ik wel gaan compileren?)
+[GEN80 YMODEM        (de volgende worden niet gecompileerd,
+[GEN80 WINDOWS         ze moeten af en toe nog een keer worden compileerd)
+[GEN80 CRTIO
+[GEN80 DSKIO
+[GEN80 MENU
+[GEN80 ROMUSE
+[GEN80 UTILS
+[GEN80 BELLEN
+GEN80 TERMINAL  (hier ben ik nu mee bezig)
+GEN80 ANSICONV  (hier ook)
+PAUSE           (ivm met afbreken na foutmeldingen)
+L80 YMODEM/N,YMODEM/E/P:100,WINDOWS,ROMUSE,CRTIO,DSKIO,MENU,UTILS,BELLEN,TERMIN
+AL,ANSICONV
+PAUSE
+YMODEM
+

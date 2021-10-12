@@ -1,0 +1,2180 @@
+<< page 5 >>
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+CHAPTER 2
+System organization
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+In this chapter We want to explain the hardware organization of the MSX Turbo
+R to start of with the new R800 CPU.
+
+2.1 standard equipment (shiy™ blz 130)
+
+ Below we show with the help of a summary the differences between the standards
+ of msx 2+ and the Turbo R
+
+
+ chart 1.1 outline ofthe standard equipment of the MSX Turbo R and the MSX 2+
+
+ WWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                        V MSX Turbo R            V MSX 2+
+ WWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWW
+ CPU                    V R800 of eqv            V Z80A or eqv
+                        V(7.15909 Mhz)           V (3.579545 Mhz)
+ WWWWWWWRWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWW
+        V         ROM   V 160 KB                 V 96 KB
+        V               V(MSX BASIC ver.4)       V (MSX BASIC ver.3)
+        V               V MAIN ROM 32 KB         V MAIN ROM 32 KB
+        V               V SUB ROM 16 KB          V SUB ROM 16 KB
+        V               V KANJI Driver 32 KB     V KANJI Driver 32 KB
+        V               V MSX DOS1 16 KB         V MSX DOS1 16 KB
+ memory V               V MSx DOS2 48 KB         V (option)
+        V               V MSX MUSIC 16 KB        V (option)
+        V               TWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+        V      RAM      V At least 256 Kb        V At least 64 KB
+        V               TWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+        V      VRAM     V 128 KB
+ WWWWWWWQWWWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+<6                                             CHAPTER 2 SYSTEM ORGINATZATION>
+WWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                        V MSX TURBO R            V MSX 2+
+WWWWWWWWWRWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         V VDP          V V9958 or EQV
+         V              TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         V resolution   V 512x212 (non interlaced)
+         V    (max)     V 512x424 (interlaced)
+         V              TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+screen   V colors(max)  V 19268 colors
+         V              TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         V hardware     V vertically and horzontally
+         V scroll       V
+WWWWWWWWWQWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+cassette interface      V not available         V FSK methode 1200 . 2400baud
+WWWWWWWWWRWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         VPSG           V AY-3-8910 or eqv
+         V              TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         V FM sound     V MSX-AUDIO (option)
+sound    V    source    TWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         V              V MX-MUSIC              V (option)
+         V              TWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         V              V MSX-MIDI              V not available
+         V              V (option)              V
+WWWWWWWWWQWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Keyboard                V English-nummerical, hirigana, katakana, grafic
+                        V letter equivalence (????), JIS arrangement, 50??
+WWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Floppydrive             V 3.5 inch 2dd
+                        V (1DD read/write possibilitiy)
+                        TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+               Format   V MS-DOS 2.11 standard
+WWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+PRINTER                 V 8 bit parallel
+                        V centronicsinterface standard
+WWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+cartridge slot          V ??
+WWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Joystick                V 2
+WWWWWWWWWRWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+KANIJ    V KANJI ROM    V 1 Standard
+function V              V 2 Standard
+         V              TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+         V KANJI INPUT  V SINGLE KANJI CONVERTOR (MSX JE EQUIVALANCE)
+WWWWWWWWWQWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+realtime clock          V RP5C01 or eqv
+WWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+<2.2 HARDWARE ORGINAZATION                                                  7>
+
+2.2 HARDWARE ORGINAZATION
+
+ The hardware orginazation of the msx turbo r is shown here
+
+2.2.1 MAIN LSI
+  The most important LSI of the Turbo R are shown below here.
+
+  CPU      R800 or eqv (clock 7.15909 Mhz)
+           Z80A or eqv (clock 3.57945 Mhz)
+  VDP      V9958 or eqv
+  PSG      AY-3-8910 or eqv
+  FM soundsource  MSX-MUSIC (YM2413 or eqv)
+  MIDI     MSX-MIDI (i8251 or eqv en i8253 or eqv en verder i8254 or eqv)
+  PPI      i8255 or eqv
+  systemIC S1990 or eqv
+
+2.2.2 MEMMORY
+  The memory shown below is orginized in the MSX Turbo R.
+
+       ROM  MSX BASIC ver.4         80 KB
+               (MAIN ROM    32 KB)
+               (SUB ROM      16KB)
+               (KANJI DRIVER 32KB)
+            MSX-DOS1                16KB
+            MSX-DOS2                48KB
+            MSX-MUSIC               16KB
+
+       RAM  MAIN RAM               256 KB at least (memmory mapper is being
+                                                      used)
+            VRAM                   128 KB
+
+2.2.3 BLOCK DIAGRAM
+
+  The MSX Turbo-R system-equipment is explained with a block diagram.
+  The MSX Turbo-R has 2 CPU's (Z80 and R800). The type of processor (R800 or
+  Z80) can be freely changed in the use of program. If one of the processors
+  is used the other processor will be put on HOLD.
+  It is not possible to use both the processors at the same time.
+
+<8                                              CHAPTER 2 SYSTEM ORGINAZATION>
+XWWWWWWWWY      XWWWWWWWWY      XWWWWWWWWWY     XWWWWWWWWWWWWY
+V        V      V        V      V         V     V            V
+V  Z80   TWWWWWWS S1990  TWWWWWWS R800    TWWWWWS  DRAM      V
+V        V      V        V      V         V     V            V
+ZWWWWWWWW[      ZWWWWRWWW[      ZWWWWWWWWW[     ZWWWWWWWWWWWW[
+                     V
+    XWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWY
+    V                V                          V
+XWWWQWWWWY      XWWWWQWWWWY     XWWWWWWWWWWWWWWWQWWWWWWWWWWWY
+V        V      V         V     V                           V
+V SLOT   V      V  ROM    V     V  VDP, OPLL, FDC etc       V
+V        V      V         V     V                           V
+ZWWWWWWWW[      ZWWWWWWWWW[     ZWWWWWWWWWWWWWWWWWWWWWWWWWWW[
+
+                picture 1.1 MSX Turbo R Block scheme
+
+The S1990 is a LSI-systemcontroller as a solution for the switching of the CPU.
+The control of the slots and memory, the generation of wait signals as well as
+the I/O decoding etc is executed by the S1990.
+
+2.3 SLOT ORGINASATION
+
+In the MSX Turbo R the slot orginazation was standarized. Because the Main Ram
+was directlty connected to the R800 or depending to which slot it is connected,
+the  system performance can change graetly. Furthermore, a purpose is to
+simplify the develpment of application software.
+DOS contains both MSX DOS1 en MSX DOS2. In page 1 of slot 3-2 there are  4
+local banks, the first 3 pages are for MSX-DOS2 and the last page 1 for MSX
+DOS1.
+In the system the combination of the two DOS versions with the 2 CPU can be
+changed freely but it simplifies the system and                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 V  V       V  V       V  V       V PAGE 3
+      V       V  V       V  V       V  V       V
+C000H TWWWWWWWS  TWWWWWWWS  TWWWWWWWS  TWWWWWWWS
+      V       V  V       V  V       V  V       V PAGE 2
+      V       V  V       V  V       V  V       V
+8000H TWWWWWWWS  TWWWWWWWS  TWWWWWWWS  TWWWWWWWS
+      V       V  V       V  VMSX    V  V       V PAGE 1
+      V MAIN  V  V       V  VMUSIC  V  V       V
+4000H V       V  TWWWWWWWS  TWWWWWWWS  TWWWWWWWS
+      V ROM   V  V       V  V       V  V       V PAGE 0
+      V       V  V       V  V       V  V       V
+0000H ZWWWWWWW[  ZWWWWWWW[  ZWWWWWWW[  ZWWWWWWW[
+
+
+          1          2
+FFFFH XWWWWWWWY  XWWWWWWWY
+      V       V  V       V
+      V       V  V       V
+C000H VEXT.   V  VEXT.   V
+      V       V  V       V
+      VSLOT   V  VSLOT   V
+8000H V       V  V       V
+      V       V  V       V
+      V       V  V       V
+4000H V       V  V       V
+      V       V  V       V
+      V       V  V       V
+0000H ZWWWWWWW[  ZWWWWWWW[
+
+
+         3-0        3-1        3-2          3-3
+FFFFH XWWWWWWWY  XWWWWWWWY  XWWWWWWWY     XWWWWWWWY
+      V       V  V       V  V       V     V       V  PAGE 3
+      V       V  V       V  V       V     V       V
+C000H V       V  TWWWWWWWS  TWWWWWWWSWWY  TWWWWWWWS
+      V MAIN  V  VKANJI  V  V       VWYV  V       V  PAGE 2
+      V RAM   V  VDRIVER V  V       VYVV  V       V
+8000H V (*1)  V  V       V  TWWWWWWWSVV[  TWWWWWWWS
+      V       V  V       V  V DOS   VV[   V       V  PAGE 1
+      V       V  V       V  V       V[(*2)V       V
+4000H V       V  TWWWWWWWS  TWWWWWWWS     TWWWWWWWS
+      V       V  V SUB   V  V       V     V       V  PAGE 0
+      V       V  V ROM   V  V       V     V       V
+0000H ZWWWWWWW[  ZWWWWWWW[  ZWWWWWWW[     ZWWWWWWW[
+
+(*1) With the memmory it contains at least 256 Kb.
+(*2) Local Bank. The first 3 pages are for MSX DOS2 and the last page is for
+      MSX DOS1.
+
+         Pricture 1.2 Slot orginasation of the MSX Turbo R
+<10                                             CHAPTER 2 SYSTEM ORGINAZATION>
+
+2.4 R800
+
+2.4.1 FEATURES OF THE R800
+
+The R800, develloped CPUused in the Turbo R, has the features shown below.
+
+1. Z80 and object-compatible
+   With the software written for the Z80 note that the parts dependent on the
+   timing of the CPU are removed and not-changed can be used.
+
+2. The CPU clock frequency is 7.15909 Mhz
+   Because compared with the number of clockpulses per instruction in the Z80
+   sharply lower , the z80 conversion is in fact at the speed on 28.63636Mhz
+   (If there are no waitstates).
+3. multiplication commands
+   the multiply command that is supported has an accuracy of  8bit x 8bit ->
+   16 bit and also 16bit x 16bit -> 32 bit
+   Dependend on this, bigscale progress of mathematical- operation-procedure
+   speed is possible. (??)
+4. LSB/MSB defenition instructions
+   With the Z80 / The access of the higher and the lower 8 bit of register
+   IX/IY with the LSB/MSB defenition is properly ensured
+   In figure 1.2 the [verwerkings]speeds of the most important instructions is
+   shown. (When the Turbo R has no waitstates. On the MSX 2+ 1 waitstate
+   occurs on the M1 cycle.??)
+
+2.5 WAIT
+In the MSX Turbo R normally no waitstates are generated. In the conditions
+below a waitstate is generated.
+
+ 1. If an external slot is accessed (3 waitstates)
+    When an external slot is accessed, to support the externale hardware up to
+    now developed, the Turbo R is designed in the same way the MSX2+, it has
+    the same accesstime while accessing.
+
+ 2. If an internal rom is accessed (2 waitstates)
+    internal ROMS are ROMS like BIOS, BASIC and as well as the internal
+    DISKROM etc.
+    In the first stage in the Turbo R because BIOS, BASIC, SUB ROM and the 16KB
+    of the first part of the KANJI driver (64KB in total) are being copied to
+    the main RAM, In that case approximately in state 3 waitstates
+    are generated(????????????????????????)
+<2.5 WAIT                                                               11>
+  picture 1.2  execution-comparison of the MSX Turbo R and MSX2+
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+ INSTRUCTION    MSX2+(in u.sec) MSX Turbo R(in u.sec)   FACTOR
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+LD     r,s      1.40            0.14                    x 10.0
+LD     r,(HL)   2.23            0.42                    x 5.3
+LD     r,(IX+n) 5.87            0.70                    x 8.4
+PUSH   qq       3.35            0.56                    x 6.0
+LDIR   (BC<>0)  6.43            0.98                    x 6.6
+ADD    A,r      1.40            0.14                    x 10.0
+INC    r        1.40            0.14                    x 10.0
+ADD    HL,ss    3.35            0.14                    x 24.0
+INC    ss       1.96            0.14                    x 14.0
+JP              3.07            0.42                    x 7.3
+JR              3.63            0.42                    x 8.7
+DJNZ   (B<>0)   3.91            0.42                    x 9.3
+CALL            5.03            0.84                    x 6.0
+RET             3.07            0.56                    x 5.5
+MULTU  A,r      160             1.96                    x 82
+MULTUW HL,rr    361             5.03                    x 71
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+3. When the internal DRAM is being addressed (1 waitstate)
+   the pageaccess-mode is supported what means that the R800 uses its own bus
+   to the DRAM. Therefore it is possible to get the best performance of the
+   DRAM. In differences with the memmory access the lower 8bit of the adress
+   is just changed, in the page-address-mode highspeed access is possible.
+   Except the lower 8 bit that are changed, the rest presents the pagebreak
+   that is produced.
+   Because when using the page-break 2 using the DRAM is done 1 about 1 time
+   practically approximately 0.5 waitstate is generated.
+   With the pagebreak also a DRAM refresh is generated.
+   With the R800, different from the Z80, together with the commands in
+   practice the DRAM refesh are not unsynchonized executed.
+   In the MSX Turdo R the refresh takes every time 31 u.sec The refresh of 1
+   time takes 280 n.sec. Furthermore with jump instructions (relative jumps
+   and absolute jumps) a pagebreak is absolutly generated.
+
+According to this it is better with highspeed access to pay attention to the
+ things below with important programs.
+
+1. Transmission of programs in RAM
+   With a program in a ROM cartridge, highspeed can be used if a important part
+   is moved by highspeed into ram.
+   A program provided from diskette will inevitable put into RAM for using it 
+   so that will be no problem.
+
+<12                                              CHAPTER 2 SYSTEM ORGINASATION>
+2. Coding where no pagebreak takes place.
+   In the case of using into RAM when highspeed  comes to a necessary loop
+   /just the register of the CPU ?? /and  when coding with few times accessing
+   of datamemory (this also contains stack) the advantage of the pageacces mode
+   makes the best use of it.
+   Furthermore, a loop is most effective when it is programmed between xx00H
+   and xxFFH.
+
+3. Using the system-timer
+   In the Turbo R the effect of the above mentioned pagebreak and refreshcycle
+   like in the MSX 2+ understand exactly the timing of the instructions by
+   means of the coding steps, is not needed.
+   In accordance with that, even on the MSX Turbo R to make programs like
+   making on the MSX 2+, timing with software loops is not recommended.
+   In the MSx Turbo R becasue the systemclock is increased every 3.91 u.sec,
+   it is recommended to be used for timing.
+<629                                                                          >
+
+CHAPTER 4
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+MSX MIDI
+
+<630                                                                          >
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+CHAPTER 1
+
+ABOUT MSX MIDI
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Because MIDI (Musical Instrumental Digital Interface) functions were also
+added to MSX MUSIC, MIDI can be used via BASIC instructions.
+There is no BIOS used for MSX MUSIC. Except for Basic, programs that use
+MSX-MIDI access the I/O ports directly.
+MSX-MIDI can be built inside as well as it can be an external cartridge.
+MIDI was for the exclusive use of the MSX TURBO R and machines that might be
+build hereafter. On a MSX, MSX 2 or MSX 2+ it can't be used.
+MSX MIDI was constructed in the following way.
+
+* MIDI INTERFACE
+   8251    MIDI data communication IC
+   8253 and 8254 booreeto generator and timer IC
+   futhermore there are some different IC's for the port access.
+
+* MSX-MIDI ROM (16Kb)
+   In case it is internal, the ROM is in the same slot (slot 0-2, page1) as
+    MSX MUSIC.
+   In case it is in an external cartridge, the rom is fitted in the
+   cartridge. When basic commands are used, the internal MSX MUSIC can't be
+   used so the MSX MIDI in the external cartridge will be used that appeared
+   in the booting process.
+<633>
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                      CHAPTER 2
+                      HARDWARE
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+The way of accessing and the way of construction of the hardware depends on
+the fact if there is an internal or an external MSX MIDI.
+Below the hardware construction of MSX MIDI is explained.
+Further, the timer IC 8253 and 8254 are being used but below only the 8253 is
+shown.
+
+2.1 BLOCK DIAGRAM
+
+ The hardware construction of MSX-MIDI.
+
+           8251
+         XWWWWWWWWY                         XWWWWWY
+ MIDI IN V    RTS VWWWWWWWWWWWWWWWWWWWWWWWW>V     V
+ WWWWWWW>V  RXRDY VWWWWWWWWWWWWWWWWWWWWWWWW>V AND V WWY
+         V    DSR V<WWWWWWWWWWWWWWWWWWY     V     V   V
+         V    DTR VWWWWWWWWWWWWWWWWWY V     ZWWWWW[   V
+ MIDI OUTV        V<WWY             V V               V  XWWWWWY
+<WWWWWWWWV        V   V             V ZWWWWWWWWWY     ZW>V     V
+         ZWWWWWWWW[   V 500 KHz     V           V        V OR  V WWWWWW> INT
+                      V             V  XWWWWWY  V XWWWWW>V     V
+         XWWWWWWWWY   V             ZW>V     V  V V      ZWWWWW[
+4Mhz RWW>V TIMER0 VWWW[                VAND  VWWQW[
+     V   TWWWWWWWWS         XWWWWWY XW>V     V
+     V   V TIMER1 VWWWRWWWW>VS    V V  ZWWWWW[
+     V   TWWWWWWWWS   V     V  FF VW[
+     ZWW>V TIMER2 VWW>[  XW>VR    V
+         ZWWWWWWWW[      V  ZWWWWW[
+                         V
+
+                        0EAH Write
+
+                DIAGRAM 4.1 BLOCK SCHEME OF THE MSX MIDI
+<634                                                   CHAPTER 2 HARDWARE  >
+2.2 BUILT-IN MIDI INTERFACE
+       The following I/O ports of the built in MSX-MIDI interface are
+       accessable.
+
+8251 interface ; portnumber 0E8H, 0E9H
+
+0E8H (READ)     b7   b6   b5   b4   b3   b2   b1   b0
+              XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+              VRXD7VRXD6VRXD5VRXD4VRXD3VRXD2VRXD1VRXD0V
+              ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+              XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+     (WRITE)  VTXD7VTXD6VTXD5VTXD4VTXD3VTXD2VTXD1VTXD0V
+              ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+
+      RXD7-RXD0  =  8251 received data
+      TXD7-TXD0  =  8251 data to send
+
+0E9H (READ)     b7   b6   b5   b4   b3   b2   b1   b0
+              XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+              VDSR VBRK V FE V OE V PE VEMPTVRDDYVTRDYV
+              ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+
+        DSR     8253  data set ready                  (1=  ?? detected)
+        BRK     8251  break detection                 (1=detected)
+        FE      8251  frame error flag                (1=error detected)
+        OE      8251  overrun error flag              (1=error detected)
+        PE      8251  parity error flag               (1=parity error detected)
+        EMPT    8251  transmitter buffer empty status (1=buffer is empty)
+        RRDY    8251  receiver buffer status          (1= data is present)
+        TRDY    8251  transmitter status              (1=transmission possible)
+
+       (WRITE)
+
+
+0E9H  (Write)    b7   b6   b5   b4   b3   b2   b1   b0
+               XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+      mode     V S2 V S1 V EP V PENV L2 V L1 V B2 V B1 V
+               ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+               XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+      command  V EH V IR VRIE V ER VSBRKV RE VTIE VTEN V
+               ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+
+    EH    normally set to 0
+    IR    normally set to 0
+    RIE   MIDI IN transmission enablen   (1=enable; 0=disable)
+    ER    error reset                    (1=reset error flags; 0=no operation)
+<2.2 INTERNAL MIDI INERFACE                                             635>
+    SBRK  normally set to 0
+    PE    MIDI IN receive enable          (1=enable; 0=disable)
+    TIE   8253 timer (counter #2)         (1=enable; 0=disable)
+          transmission enable
+    TEN   MIDI OUT transmission enable    (1=enable; 0=disable)
+
+When writing to the command mode register of the 8251 it is nessesary to wait
+16 clock cycles (3.579545 Mhz) for the result. When writing a sequence of
+commands to to command register please wait before writing the data.
+
+After writing 00H, 00H, 00H, 40H to the I/O port 0E9H the 8251 is resetted.
+Because when a wrong value to the mode was written the MIDI can't function
+properly, it is necessary to write the correct values after a reset.
+For details please see the accompanied programsample ([THRU.MAC]).
+
+8253 OUT2 Latch of the signals of the terminal (adress 0EAH,0EBH)
+
+0EAH (WRITE)       b7   b6   b5   b4   b3   b2   b1   b0
+                 XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+                 V  - V  - V  - V  - V  - V  - V  - V  - V
+                 ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+
+          0EAH Reading the data from this adres is ineffective
+          0EBH Is the image of 0EAH
+
+
+dependent on the optional data written to adress 0EAH, the data read from
+counter #2 of the 8253 can be cancelled.
+
+8253 INTERFACE (adres 0ECH-0EFH)
+
+                   b7   b6   b5   b4   b3   b2   b1   b0
+                 XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+     0ECH (R/W)  VCT7 VCT6 VCT5 VCT4 VCT3 VCT2 VCT1 VCT0 V
+                 ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+                 XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+     0EDH (R/W)  VCT17VCT16VCT15VCT14VCT13VCT12VCT11VCT10V
+                 ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+                 XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+     0EEH (R/W)  VC727VCT26VCT25VCT24VCT23VCT22VCT21VCT20V
+                 ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+                 XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+     0EFH (READ) V  - V  - V  - V  - V  - V  - V  - V  - V
+                 ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+                 XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+          (WRITE)VSC1 VSC0 VRW1 VRW0 VM2  VM1  VM0  VBCD V
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            s low, the
+  latch data is transmitted and the ?? to the CPU is developped. The CLK unit
+  gives a clockpulse of 4 MHz.
+
+2.3 EXTERNAL MIDI INTERFACE
+
+The external MSX MIDI interface uses I/O port that is can be found in port
+0E2H, the I/O port can be changed.
+
+* MIDI interface selections (adres 0E2H, 0EAH)
+
+   0E2H  (WRITE)    B7   B6   B5   B4   B3   B2   B1   B0
+                  XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+                  V EN V  - V  - V  - V  - V  - V  - V E8 V
+                  ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+
+    EN          MIDI interface enable  (0=enable, 1=disable)
+                With the initialization set to 1
+    E8          MIDI interface adres select (0=0E8H/0E9H)
+                                            (1=0E0H/0E1H)
+
+ If bit E8 is set to 0, I/O port of the external MIDI interface is changed
+ from 0E2H to 0EAH, the internal MIDI interface is compatible with this.
+ Further, the 8251 I/O adres becomes 0E8H and 0E9H.
+<2.3 EXTERNAL MIDI INTERFACE                                    637>
+ If bit E8 is set to 1, the I/O port of the 8251 interface is 0E0H and 0E1H ,
+ the access of 0ECH to 0EFH as I/O of the cartridge is invalid. Further, the
+ 8253 timer is also invalid.
+
+* 8251 INTERFACE (adres 0E0H and 0E1H)
+
+0E0H            b7   b6   b5   b4   b3   b2   b1   b0
+              XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+      (read)  VRXD7VRXD6VRXD5VRXD4VRXD3VRXD2VRXD1VRXD0V
+              ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+              XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+      (write) VTXD7VTXD6VTXD5VTXD4VTXD3VTXD2VTXD1VTXD0V
+              ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+      RXD7-RXD0  =  8251 received data
+      TXD7-TXD0  =  8251 data to send
+
+0E1H            b7   b6   b5   b4   b3   b2   b1   b0
+              XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+       (read) VDSR VBRK V FE V OE V PE VEMPTVRDDYVTRDYV
+              ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+
+        DSR     8253  data set ready                  (1=  ?? detected)
+        BRK     8251  break detection                 (1=detected)
+        FE      8251  frame error flag                (1=error detected)
+        OE      8251  overrun error flag              (1=error detected)
+        PE      8251  parity error flag               (1=parity error detected)
+        EMPT    8251  transmitter buffer empty status (1=buffer is empty)
+        RRDY    8251  receiver buffer status          (1= data is present)
+        TRDY    8251  transmitter status              (1=transmission possible)
+
+       (WRITE)
+
+
+0E9H  (Write)    b7   b6   b5   b4   b3   b2   b1   b0
+               XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+      mode     V S2 V S1 V EP V PENV L2 V L1 V B2 V B1 V
+               ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+               XWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+      command  V EH V IR VRIE V ER VSBRKV RE VTIE VTEN V
+               ZWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+<638                                                 CHAPTER 2 HARDWARE     >
+    EH    normally set to 0
+    IR    normally set to 0
+    RIE   MIDI IN transmission enablen   (1=enable; 0=disable)
+    ER    error reset                    (1=reset error flags; 0=no operation)
+    SBRK  normally set to 0
+    PE    MIDI IN receive enable          (1=enable; 0=disable)
+    TIE   8253 timer (counter #2)         (1=enable; 0=disable)
+          transmission enable
+    TEN   MIDI OUT transmission enable    (1=enable; 0=disable)
+
+
+2.4
+CHECK MIDI
+In case of bit 0 of adres 002EH of the MAIN ROM being 1  MSX MIDI is built in.
+The versionnumber ([002DH) is 3 or more the built-in MSX MIDI can be used.
+The internal type and the external type have another hook. The difference is
+because of the application. In chapter 4- 3.2 the hooks are shown.
+The difference between an internal type and an external type can be seen at
+the adres 4018 beginning data.
+
+     chart 4.1  data differences of the MSX MIDI
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+ADRES         INTERNAL        EXTERNAL
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+4018H         41H(A)          ??H(?)
+4019H         50H(P)          ??H(?)
+401AH         52H(R)          ??H(?)
+401BH         4CH(L)          ??H(?)
+401CH         4FH(O)          4DH(M)
+401DH         50H(P)          49H(I)
+401EH         4CH(L)          44H(D)
+401FH         4CH(L)          49H(I)
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+In the external cartridge starting at adres 4018H 4 bytes makercode that
+can change is located. From adres 401CH the data [MIDI] is located.
+< way of distinction of presence of the MIDI interface              639>
+
+2.5 way of distinction of presence of the MIDI interface
+
+The presence of the MIDI interface can be detected by the following ways.
+
+1. In case bit 0 of adres 002EH of the MAIN ROM equals 1 the MIDI interface is
+   present.
+
+2. In case the versionnumber of the MAIN ROM (002DH) is 3 or higher and in a
+   slot the following can be found.
+
+    DB "MIDI"
+
+   When that is so, the external cartridge is installed.
+
+3. If the above is not so, because the MIDI interface is not present, the MIDI
+   functions can't be used.
+
+4. In case the version nummer (002DH) equals 2 or lower, a MIDI interface can't
+   be used.
+<650                                                                       >
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+CHAPTER 3
+HOOKS
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+The hook for MSX MUSIC is used 1/60 second (NTSC) or 1/50 second (PAL) but
+MIDI from MSX BASIC the 8253 uses the hook every 5 milisecond.
+
+3.2 HOOKS
+In the MSX Turbo R the following hooks are present related with the internal
+MIDI interface.
+
+    diagram 4.2 Hooks of the internal MSX-MIDI
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+adres         name      old name     contents
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0FF75H        H.MDIN    H.OKNORM     MIDI IN hook
+0FF93H        H.MDTM    H.FRQINT     8253 timer hook
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+In case of using an external cartridge, the hooks above can't be used
+therefore we advise you to use the hook H.KEYI.
+For the details of the usage please see chapter 4 [development of applications]
+
+   diagram 4.3 Hook of the external MSX-MIDI
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+adres      name
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+0FD9AH     H.KEYI
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+<643                                                                    >
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+CHAPTER 4
+development of applications
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+4.1 advice details for development of applications.
+
+If you will make MSX MIDI compatible programs please take care of the
+following things.
+
+1. The hook of the internal MIDI interface is different than the external MIDI
+   interface. When using interrupt hooks, verify if the type, if it is
+   internal or external.
+
+2. After the initialization of the MIDI interface the interrupt hooks are
+   allowed, because of the mobility of the interrupt flags that can set,
+   interrupt flags must be resetted.
+   The interrupt flags that are available are below
+
+      diagram 4.4 interrupt flags of the MIDI interface
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+kind of hook    hook direction               way of handling
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+timer          bit 7 (DSR) of 0E9H or 0E1H    write the option to 0EAH
+MIDI IN        bit 1 (RRDY)of 0E9H or 0E1H    read with an IN-instruction 0E8H
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+3. With an external MIDI interface external hooks MIDI IN and 8253 timer come
+   also to H.KEYI.
+   The hooks must be written from this adres. To detect if there is MIDI IN
+   interrupt or not you have to verify bit 1 of I/O port 0E9H.
+   To verify if there is an interrupt from the 8253 timer you will have to
+   verify bit 7 of I/O port 0E9H.
+<644                                    CHAPTER 4 DEVELOPMENT OF APPLICATIONS>
+4. The generation of MIDI IN interrupt signals is done every 320 u.sec.
+   when a RST 30H instruction is used when a hook is read by a routine, it
+   takes time to make an interslot call ,therefore there is not enough time
+   for the interrupt signals handling.
+   Therefore we advise to create the following handling routine
+
+   * place the procudure routine in page 3
+   * Jump with a JP instruction to the handling routine
+
+4.2 Sample program
+
+For more details about the MIDI interface and the flags please see the sample
+program (THRU.MAC).
+<645                                                                         >
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                CHAPTER 5
+              BASIC EXPANSIONS
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+5.1 OUTLINE OF THE BASIC EXPANSIONS.
+
+The names of the commands for using MSX MIDI have been simplified and have
+been included in basic commands. The MSX-MIDI basic commands have been
+supported in the expansion of commands like CALL MUSIC. CALL an be substituted
+by '_' (underscore). With the MIDI interface external MIDI deveices can be
+used. Therefore, commands have been modificated and supplemented. Further,
+because both MML and MIDI must be corresponding, commands have been changed.
+
+5.2 Explanation of the BASIC expansions
+
+CALL MUSIC
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+XWWWWWWWWWWWY
+VFunktion   V   Initialize MSX MIDI System
+ZWWWWWWWWWWW[
+XWWWWWWWWWWWY
+V Form      V   CALL MUSIC[([<MODE>],[,[0][,<single channel used for PLAY 1>
+ZWWWWWWWWWWW[    [,<single channel used for PLAY2>[,...[,<single channel used
+                 for PLAY 9>]]]]]]]]]])]
+XWWWWWWWWWWWY
+VExplanationV   When the built in sound chip LSI is designated how much
+ZWWWWWWWWWWW[   FM channels per voice, the MIDI interface is also designated.
+                After the initialisation after the CALL MUSIC, it is not
+                possible to use other expansion BASIC statements.
+
+                * <MODE>
+<646                                           CHAPTER 5 BASIC EXPANSION>
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+designation     meaning
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+   0            No use of rythme
+   1            Use of rythme
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+* channel
+ in each mode the channels to be used  are shown below.
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+mode     rythme         maximum per channel
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+  0      no             9
+  1      yes            6 fm channels + 1 rythme
+                        8 MIDI channels + 1 rythme
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+With mode 1 when using midi the number of voices used per channel can be
+increased up to 8.
+For the play command the number of OPLL channels used by  built-in FM
+soundprocessor have to be designated. To use 0 voices is not possible.
+With the OPLL only channels 9 voices can be used. With mode 1 3 channels
+are used for rythme. In mode 0 9 channels can be used as maximum. In Mode 1 6
+channels can be used as maximum.
+In case of using MIDI, a play line is assigned to 1 MIDI channel.
+A value of 2 or more is designated the meaning doesn't change.
+With the channels of the FM processor the number of channels can be changed.
+Because with MIDI 1 play line is assigned to 1 MIDI channel, in this occasion
+it can be designated as 1, 2, 3, .... .
+To change this is possible using the MML command @Hn.
+In case this parameter was set to 1 or more, the other value of this parameter
+can be 0. It is not possible to leave 0 out int the CALL MUSIC command.
+Please look at the following commands.
+
+ CALL MUSIC (0,0,0,5,0)
+                 V   V
+  It is not possible to designate 0.(Illegal function call will be generated.)
+
+ CALL MUSIC (0,0,1,,2)
+                  V
+  It is not possible to leave the parameter out.(Syntax error will be
+                                                  generated.)
+<5.3 explanations of the BASIC expansions                               647>
+
+  CALL MUSIC (1,0,1,1,1,1,1,1,0,0)
+                              V V
+  In mode 1 channel 7 and 8 must be designated.
+
+ In case of PLAY #1
+   Channel 1-8 are assigned for MIDI
+   Channel 9 is assigned for MIDI rythme
+   Channel 10 - 12 are assigned for the PSG
+
+ In case of PLAY #2
+   Channel 1-6 are assigned for the FM soundprocessor
+   Channel 7 and 8 can't be used
+   Channel 9 is assigned for rythme sounds
+   Channel 10-12 are assigned for the PSG.
+
+When it is used without parameters it is the same as CALL MUSIC (1,0,1,1,1).
+If CALL MUSIC is used because the systemhook is linked to the MSX MIDI
+software, the access of the handling routine is increased and the
+suruuputo(??) of the system decreases. Because of the workarea space of a
+CLEAR must be given, HIMEN ( 2 byte parameter of the CLEAR instruction) will
+be 807 bytes lower.
+
+XWWWWWWWY
+VexampleV  CALL MUSIC
+ZWWWWWWW[  Default setting.
+
+           CALL MUSIC (0,0,1,1,1,1,1,1,1,1,10
+           One channel per PLAY line is assigned.
+
+CALL MDR
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+XWWWWWWWWWWWY
+VFunktion   V Designation of the MIDI note numbers for the rytme sounds in MML
+ZWWWWWWWWWWW[
+XWWWWWWWWWWWY
+V Form      V CALL MDR (<MIDI note number of B>,<MIDI note number of S>,<MIDI
+ZWWWWWWWWWWW[           note number of M>,<MIDI note number of C>,<MIDI note
+                        number of H>)
+XWWWWWWWWWWWY
+VExplanationV The in MML used rythme B,S,M,C,H commands can be designated to
+ZWWWWWWWWWWW[ MIDI note numbers.
+<648                                                CHAPTER 5 BASIC EXPANSION>
+
+Because there are a lot of MIDI sounds, with 1 channel the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                WWWWWW[
+PLAY
+
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+XWWWWWWWWWWWY
+VFunktion   V Plays the in MML complied music.
+ZWWWWWWWWWWW[
+XWWWWWWWWWWWY
+V Form      V PLAY [#<MODE>,]<line 1>[,>line 2>],<line 3> .. [,<line 12>]
+ZWWWWWWWWWWW[
+XWWWWWWWWWWWY
+VExplanationV With the play command the music is performed. Up to 12 tones can 
+ZWWWWWWWWWWW[ be produced, 9 from the built-in soundprocessor + 3 PSG and 
+              furthermore 9 from the MIDI deveice + 3 PSG.
+              The in <line n> written MML data is performed. A call or other 
+              instruction is not needed.
+              <mode> must be a value between 0 and 3. The play command and the 
+              mode give the following possibility.
+
+              * When 0 or no data is given it is equal a the normal play 
+                commando in basic. Up to 3 PSG channels can be used.
+              * When it is 1, the MIDI deveice and the PSG can be used.
+                The relations between the playlines is the following :
+                <MIDI deveice play line 1>, ... <MIDI deveice play line n>,
+                <MIDI deveice rythme line>,
+                <PSG play line 1>,<PSG play line 2>,<PSG play line 3>
+              * When it is 2 or 3, the FM soundprocessor and PSG can be used.
+                 (the use of 2 or 3 is exactly the same.)
+                The relations between the play lines is the following.
+                <FM play line 1>,...<fm play line n>
+                <FM rythme line>,
+                <PSG play line 1>,<PSG play line 2>,<PSG play line 3>
+
+              n is the number of MML playlines designated with CALL MUSIC.
+              In case a mode is designated with no use of rythme wtih the CALL
+              MUSIC the rythme play line as well as the komma (,) must be left 
+              out.
+
+XWWWWWWWWY
+Vexample V PLAY #1,"CD","EF","GA"
+ZWWWWWWWW[
+USAGE OF MML FOR MIDI DEVEICES
+
+Here we explain the supplied and changed MML for the usage of MIDI deveices.
+
+       figure 4.5 supplemented MML for the use of MIDI deveices.
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Character  Meaning                                      Value
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+@Hn        Designates the used MIDI channel number.     1 ó n ó 16
+@Cm,n      Send a control change.
+           m = control change, n = value of the         1 ó m ó 127
+           control number to be changed.                1 ó n ó 127
+@Sn        Instruction related to the MIDI realtime clock
+           n=0 Sends FCH(STOP) out, stop the clock
+           n=1 Sends FAH(START) out, starts the clock
+           n=2 Sends FBH(CONTINUE) out, continues the clock
+           The tempo of the clock will be the same as defined in playline 1.
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+       figure 4.6 changed MML for the use of MIDI deveices.
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Character  Meaning                                     Value
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Ln         Designates the length                        1 ó n ó 96
+Rn         Designates the rest length                   1 ó n ó 96
+@Wn        Continue the length with n                   1 ó n ó 96
+Vn         This differss with the MIDI deveices,        1 ó n ó 15
+           8 times the values of the velocity is
+           send out.
+@Vn        Volume (Control change #7) is send out.      1 ó n ó 127
+@n         With the built in FM soundprocessor the
+           color of the sound is changed but            1 ó n ó 63
+           with MIDI deveices it is different , a
+           program change is send out.                  1 ó n ó 127
+Zn         1 byte MIDI data is send out.                1 ó n ó 255
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+<650                                            CHAPTER 5 BASIC EXPANSION >
+USAGE of rythme MML data
+
+Below here the supplied and changed MML for MIDI deveices are shown.
+
+         figure 4.7  supplied MML for rythme data
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Character   Meaning
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+@n          Different with MIDI deveices is that a program change is
+            send out. For the built-in FM soundprocessor this is ignored.
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+         figure 4.8 changed MML for rythme data
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Character   Meaning
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+@An         This is different for MIDI deveices, it is the same as Vn,
+            the velocity is designated.
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+<5.2 explanation of BASIC expansions                              651>
+
+  figure 4.9 ???????
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Character       MIDI            FM              PSG
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+  Mn            -               -               O
+  Sn            -               -               O
+  Vn            O [0~15]        O               O
+  Ln            O               O               O
+  Qn            O               O               -
+  On            O               O               O
+  <             O               O               O
+  >             O               O               O
+  Tn            O               O               O
+  Nn *1         O               O               O
+  Rn            O               O               O
+  A~G           O               O               O
+  +             O               O               O
+  -             O               O               O
+  #             O               O               O
+  .             O               O               O
+  =x;           O               O               O
+  Xx;           O               O               O
+  &             O               O               O
+  {}n           O               O               x
+  @n            O [0~127]       O[0~63]         -
+  @Vn           O [0~127]       O[0~127]        -
+  @Wn           O               O               the same as Rn
+* @Hn           O [1~16]        -               -
+* @Cm, n        O [0~127]       -               -
+  Yr,d          -               O               -
+  Zn            O [0~255]       - (x)           -
+* @Sn           O [0~2]         -               -
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+*1 The value of n is not the MIDI note number. It is the musical scale 
+   according that is existing.(???)
+*  Changed commands for MSX MIDI
+x  Creates an error
+-  Can't be used
+[] Range of the parameter
+() The equivalence of the old MSX MUSIC
+<652                                            CHAPTER 5 BASIC EXPANSIONS>
+     figure 4.10  Rythme sounds MML
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Command         MIDI            FM
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+   B *1         O               O
+   S *1         O               O
+   M *1         O               O
+   C *1         O               O
+   H *1         O               O
+   n            O               O
+   !            O               O
+   Vn           O               O
+   @An          O               O
+   @Vn          O [0~127]       O
+   Tn           O               O
+   Rn           O               O
+   =x;          O               O
+   Xx;          O               O
+   Yr,d         -               O
+*  @Hn          O [1~16]        -
+*  @Cm,n        O [0~127]       -
+*  @n           O [0~127]       - (x)
+   Zd           O               - (x)
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+1  In case of using MIDI deveices, the note number must be changed with
+   CALL MDR.
+*  Changed command in MSX MIDI
+x  Generates an error
+-  Can't be used
+[] Range of the parameter
+() The equivalence of the old MSX MUSIC
+
+5.3 STATEMENTS THAT DON'T EFFECT MIDI DEVEICES
+
+ The following statements have no meaning for the MIDI deveices.
+
+ CALL AUDREG
+ CALL PITCH
+ CALL TEMPER
+ CALL TRANSPOSE
+ CALL VOICE
+
+CALL VOICE can't be used in combination with MIDI deveices, please use the MML 
+command @n.
+<5.4 MIDI DATA FORMAT                                                   >
+
+5.4 MIDI DATA FORMAT
+
+Below here the MIDI data format from the MSX MIDI BASIC expansion is shown.
+
+5.4.1    transmission data 
+
+  1. note data
+     * note on
+         status      1001nnnn (9nH)  n = 0 ~ 15 MIDI channel number
+         note number 0kkkkkkk        k = 24 (C0) » 119 (B7)
+         velocity    0vvvvvvv        v =  8 * i : i= 0 ~ 15
+         The velocity value, 8 times the value designated in @An, is send out.
+     * note off
+         status      1001nnnn (9nH)  n = 0 ~ 15 MIDI channel number
+         note number 0kkkkkkk        k = 24 (C0) » 119 (B7)
+         velocity    00000000 (v=0)  velocity off
+         when if the rythme is used at the same time, both the music and 
+         rythme is stopped, the running-status is send out.
+
+  2. control changes
+
+     * @Vv (volume)
+         status         1011nnnn (BnH)  n = 0 ~ 15 MIDI channel number
+         control number 00000111        c = 7
+         control value  0vvvvvvv        v = 0 ~ 127
+
+     * @Cc, v (control change)
+         status         1011nnnn (BnH)  n = 0 ~ 15 MIDI channel number
+         control number 0ccccccc        c = 0 ~ 127
+         control value  0vvvvvvv        v = 0 ~ 127
+
+  3. program changes
+
+     * @p (program changes)
+         status         1100nnnn (CnH)  n = 0 ~ 15 MIDI channel number
+         program number 0ppppppp        p = 0 ~ 127
+
+  4. system-realtime-message
+
+     * timingclock
+        status   11111000(F8H)
+        The timingclock can be started with @S1 and @S2, used in a play line.
+        When a playline has ended, the clock is stopped then STOP (FCH) has not 
+        to be used.
+
+     * @S1  start
+        status       11111010 (FAH)
+        The starting of the clock is send out.
+
+     * @S2 continue
+        status       11111011 (FBH)
+        The starting of the clock is send out.
+
+     * @S0 stop
+        status       11111100 (FCH)
+        The stopping of the clock is send out.
+
+5.4.2 Receiving data
+
+With the BASIC expansion receiving data is not posible.
+<5.4 MIDI DATA FORMAT                                           655>
+
+     figure 4.11 MSX MIDI BASIC EXPANSION MML MIDI IMPLIMENTATION CHART 
+XWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWY
+V  Function                     V send signal   V Remarks              V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V BASIC         channels on     V 1 - 9         V                      V
+V CHANNELS      available       V 1 - 16        V @Hn                  V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V               channels on     V 3             V                      V
+V  MODE         message         V x             V                      V
+V               substitution    V *********     V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V NOTE NUMBER                   V O 24 - 119    V 01C - 08B            V
+V               voice range     V *********     V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V velocity      note on         V O 9nH, v=8xn  V Vn, @An(n=0-15)      V
+V                               V               V @An is rythme only   V
+V               note off        V x 9nH, v=0    V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V Aftertouch     key            V x             V                      V
+V                channel        V x             V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V Pitch handle                  V x             V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V                               V O (7)         V @Vn                  V
+V                               V O (0-127)     V @Cm, n               V
+V Control change                V               V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V program change                V O             V @n                   V
+V              other posibility V *********     V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V access kuruushibu(??)         V x             V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V             song portion      V x             V                      V
+V common      song select       V x             V                      V
+V             chain             V x             V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V Real time     clock           V O             V                      V
+V               command         V O             V @Sn                  V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWS
+V               local on/off    V x             V                      V
+V               all note off    V O             V [CTRL] + [STOP]      V
+V rest          active sensing  V x             V                      V
+V               reset           V x             V                      V
+TWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWS
+V remarks                       V Zn : send 1 byte MIDI data           V
+V                               V                                      V
+ZWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW[
+ O = Available
+ x = Not available
+MODE 1 : OMNI ON,POLY           MODE 2 : OMNI ON,MONO
+MODE 3 : MONI OFF,POLY          MODE 4 : OMNI OFF,MONO
+************** means that the output data has no meaning.
+<656                                                                    >
+<657                                                                    >
+APPENDIX
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+<658                                                                    >
+<659                                                                    >
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+                          A
+                R800 INSTRUCTION CHARTS
+W                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                f the memory by the shown belonging 
+register. (???)
+For example if there is :
+
+    r <- [.hl]
+
+the details of the memory of the shown HL register is is going to 8 bit (???)
+The in/out-put instructions [n] and [.c] are the equivalence of the in/out-put 
+ports.
+In the flag column the flags used are shown. OPcode column the machinecode of 
+every different instruction is written down in HEX and BIN format.
+The B stands for the length of the code in bytes, the C stands for the length 
+of the code in clock cycles.The shown mnemonics that have changed for the R800 
+can't be guaranteed to work properly on the Z80 because they are not the same 
+as the z80 instructions. (??)
+<660                                         APPENDIX A R800 INSTRUCTION CHART>
+
+remarks
+
+  XWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWY
+  V.a{7}  VThe highest bit of register .a                                 V
+  V.{4..7}VBit 4-7 of register .a                                         V
+  V;      VPunctuation of the usage                                       V
+  V.de:.hlV.de is the upper 16bit and .hl is the lower 16 bit and 32 bit  V       V                                                               V
+  V       V  formed.                                                      V
+  V[.ix+d]Vadres is formed when the 8bit of d is added to .ix             V
+  VC      Vcarry flag                                                     V
+  VZ      Vzero flag                                                      V
+  VP/v    Vparity overflow                                                V
+  VS      Vsign flag                                                      V
+  VN      Vsubstraction flag                                              V
+  VH      Vhalf clear flag                                                V
+  VG      Vflag don't change                                              V
+  VU      Vflag changed in commando used                                  V
+  V0      Vflag is set to 0                                               V
+  V1      Vflag is set to 1                                               V
+  V?      Vbecomes uncertain                                              V
+  VV      Vuses the overflow flag                                         V
+  VP      Vuses the parity flag                                           V
+  Vi(iff) Vvalue of the interrupt flipflop is attained                    V
+  Vr,r'   V8 bit register, .a,.b,.c,.d,.e,.h,.l                           V
+  Vu,u'   V8 bit register, .a,.b,.c,.d,.e,.ixh,.ixl                       V
+  Vv,v'   V8 bit register, .a,.b,.c,.d,.e,.iyh,.iyl                       V
+  Vp      V8 bit register, .ixh,.ixl                                      V
+  Vq      V8 bit register, .iyh,.iyl                                      V
+  Vss     V16 bit register,.bc,.de,.hl,.sp                                V
+  Vpp     V16 bit register,.bc,.de,.ix,.sp                                V
+  Vrr     V16 bit register,.bc,.de,.iy,.sp                                V
+  Vqq     V16 bit register,.bc,.de,.hl,.af                                V
+  Ve      V8 bit value of short branch   (+127~128)                       V
+  Vk      Vadres of the brk comando, 00h,08h,10h,18h,20h,28h,30h,38h      V
+  Vnn     Vdirect value of 16 bit, positive adres                         V
+  Vn      Vdirect value of 8 bit                                          V
+  Vb      Vvalue shown number of bits for the bits of the mathematical    V
+  V       V  operation??                                                  V
+  VNOT    Vbit rotation (??)                                              V
+  V\/     Vtaking the OR of the bits                                      V
+  V\W/    Vtaking the XOR of the bits                                     V
+  V/\     Vtaking the AND of the bits                                     V
+  Vtmp    Vtemporary value   (??)                                         V
+  VB      Vnumber of bytes of the instruction                             V
+  VC      Vnumber of clock cycles of the instruction                      V
+  ZWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW[
+???
+<A1 8 bit transfer instructions                                        661>
+
+A.1   8 BIT TRANSFER INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld r,r'     V r <- r'                    VG G G G   G GV01 r  r'V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld r,n      V r <- n                     VG G G G   G GV00 r 110V   V2V2V
+V            V                            V             V<- n  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld r,[.hl]  V r <- [.hl]                 VG G G G   G GV01 r 110V   V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld r,[.ix+d]V r <- [.ix+d]               VG G G G   G GV11011101VDD V3V5V
+V            V                            V             V01 r 110V   V V V
+V            V                            V             V<- d  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld r,[.iy+d]V r <- [.iy+d]               VG G G G   G GV11111101VFD V3V5V
+V            V                            V             V01 r 110V   V V V
+V            V                            V             V<- d  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.hl],r  V[.hl] <- r                  VG G G G   G GV10110 r V   V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.ix+d],rV [.ix+d] <- r               VG G G G   G GV11011101VDD V3V5V
+V            V                            V             V01110 r V   V V V
+V            V                            V             V<- d  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.iy+d],rV [.iy+d] <- r               VG G G G   G GV11111101VFD V3V5V
+V            V                            V             V01110 r V   V V V
+V            V                            V             V<- d  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld u,u'     V u <- u'                    VG G G G   G GV11011101VDD V2V2V
+V            V                            V             V01 u  u'V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld v,v'     V v <- v'                    VG G G G   G GV11111101VFD V2V2V
+V            V                            V             V01 v  v'V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld u,n      V u <- n                     VG G G G   G GV11011101VDD V3V3V
+V            V                            V             V00 u 110V   V V V
+V            V                            V             V<- n  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld v,n      V v <- n                     VG G G G   G GV11111101VFD V3V3V
+V            V                            V             V00 v 110V   V V V
+V            V                            V             V<- n  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.hl],n  V [.hl] <- n                 VG G G G   G GV00110110V36 V2V3V
+V            V                            V             V<- n  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.ix+d],nV [.ix+d] <- n               VG G G G   G GV11011101VDD V4V5V
+V            V                            V             V00110110V36 V V V
+V            V                            V             V<- d  ->V   V V V
+V            V                            V             V<- n  ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.iy+d],nV [.iy+d] <- n               VG G G G   G GV11111101VFD V4V5V
+V            V                            V             V00110110V36 V V V
+V            V                            V             V<- d  ->V   V V V
+V            V                            V             V<- n  ->V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+<662                                  APPENDIX A R800 instruction chart>
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .a,.i    V .a <- .i                   VU U 0 i   0 GV11101101VED V2V2V
+V            V                            V             V01010111V57 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .a,.r    V .a <- .r                   VU U 0 i   0 GV11101101VED V2V2V
+V            V                            V             V01011111V5F V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .i,.a    V .i <- .ax+d]               VG G G G   G GV11101101VED V2V2V
+V            V                            V             V01000111V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .r,.a    V .r <- .a                   VG G G G   G GV11101101VED V2V2V
+V            V                            V             V01001111V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .a,[.bc] V .a <- [.bc]                VG G G G   G GV00001010V0A V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .a,[.de] V .a <- [.de]                VG G G G   G GV00011010V1A V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .a,[nn]  V .a <- [nn]                 VG G G G   G GV00111010V3A V3V4V
+V            V                            V             V<- NNl->V   V V V
+V            V                            V             V<- NNh->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.bc],.a V [.bc] <- .a                VG G G G   G GV00000010V02 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [.de],.a V [.de] <- .a                VG G G G   G GV00010010V12 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [nn],.a  V [nn] <- .a                 VG G G G   G GV00110010V32 V3V4V
+V            V                            V             V<- NNl->V   V V V
+V            V                            V             V<- NNh->V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+XWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWY
+V V000 V001 V010 V011 V100 V101 V110 V111 V
+TWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWS
+VrV .b V .c V .d V .  V .N V .4 V    V .a V
+TWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWS
+VuV .b V .c V .d V .  V.ixrV.ixNV    V .a V
+TWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWS
+VvV .b V .c V .d V .  V.iyrV.iyNV    V .a V
+ZWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWW[
+
+A.2     06 vit xXA<UFEX INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld sse,n    V ss <- nn                   VG G G G   G GV00ss0001V   V3V3V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .ixe,n   V .ie <- nn                  VG G G G   G GV11011101VDD V4V4V
+V            V                            V             V00100001VH1 V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .ire,n   V .ie <- nn                  VG G G G   G GV11111101VFD V4V4V
+V            V                            V             V00100001VH1 V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .3p,.hl  V .3p <- .hl                 VG G G G   G GV11111001VD9 V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .3p,.ie  V .3p <- .ie                 VG G G G   G GV11011101VDD V2V2V
+V            V                            V             V11111001VD9 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .3p,.ie  V .3p <- .ie                 VG G G G   G GV11111101VFD V2V2V
+V            V                            V             V11111001VD9 V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+<A.2 06 vit tuYn3fau instr                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                WWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld sse[nn]  V ssT <- [nn+v]              VG G G G   G GV11101101VED V4V3V
+V            V TTd <- [nn]                V             V01TT1011V   V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .yle[nn] V .N <- [nn+v]               VG G G G   G GV00101010VfA V3VCV
+V            V .4 <- [nn]                 V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .ixe[nn] V.ixr <- [nn+v]              VG G G G   G GV11011101VDD V4V3V
+V            V.ixN <- [nn]                V             V00101010VfA V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld .ire[nn] V.irT <- [nn+v]              VG G G G   G GV11111101VFD V4V3V
+V            V.iTN <- [nn]                V             V00101010VfA V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [nn],ss  V[nn+v] <- ssT               VG G G G   G GV11101101VED V4V3V
+V            V[nn] <- TTd                 V             V01TT0011V   V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [nn],.hl V[nn+v] <- .N                VG G G G   G GV00100010VE2 V3VCV
+V            V[nn] <- .d                  V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [nn],.ie V[nn+v] <- .ixr              VG G G G   G GV11011101VDD V4V3V
+V            V[nn] <- .ixN                V             V00100010VE2 V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vld [nn],.iC V[nn+v] <- .irT              VG G G G   G GV11111101VFD V4V3V
+V            V[nn] <- .iTN                V             V00100010VE2 V V V
+V            V                            V             V<-nnd ->V   V V V
+V            V                            V             V<-nny ->V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+XWWRWWWRWWWRWWWRWWWY
+V  V00 V01 V10 V11 V
+TWWUWWWUWWWUWWWUWWWS
+VllV.ucV.vAV.yNV.3pV
+ZWWQWWWQWWWQWWWQWWW[
+<ii]                            tppA-vie x h800 instrbytion yNArt       R
+
+A.C    ,Y6HA5D, INSTRUCTIONS
+XWWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC     V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V             V                            V             TWWWWWWWWRWWWS V V
+V             V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Veon .vA,.hl  V.vA <-r .hl                 VG G G G   G GV11101011VEC V1V1V
+TWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Veon .bav.ba' V.ba <-r .ba'                VU U U U   U UV00001000V0[ V1V1V
+TWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Veon c.3p],.hlV.N <-a c.3p];.N <-a c3p+v]  VG G G G   G GV11100011VbH V1VCV
+TWWWWWWWWWW WWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Veon c.3p],.QeV.ixN <-a c.3p]              VG G G G   G GV11011101VDD V2V3V
+V             V.ixr <-a c.3p+v]            V             V11100011VbH V V V
+TWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Veon c.3p],.QfV.iTN <-a c.3p]              VG G G G   G GV11111101VFD V2V3V
+V             V.irT <-a c.3p]              V             V11100011VbH V V V
+TWWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Veone         V.uc <-r .ucC+.vA <-r vAC+   VG G G G   G GV11011001VF9 V1V1V
+V             V.hl <-r .hl'                V             V        V   V V V
+ZWWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+
+A.]  nSAXK OPTLATION INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VbdsT qq     V[.3pl1ehlqqQ-c3plHehlqqT    VG G G G   G GV11qq0101V   V1V4V
+V            V.3p <- .3pl1                V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VbdsT .ie    V[.3pl1ehl.ixNq[.3plHehl.ixr VG G G G   G GV11011101VDD V2VCV
+V            V.3p <- .3pl1                V             V11100101VEC V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VbdsT .iu    V[.3pl1ehl.iuNq[.3plHehl.irT VG G G G   G GV11111101VFD V2VCV
+V            V.3p <- .3pl1                V             V11100101VEC V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vb>b qq      VqqQ-pc.3p];qqT-pc.3p+v]     VG G G G   G GV11qq0001V   V1V3V
+V            V.3p <- .3p+1                V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vb>b .ie     V.ixN-pc.3p];.ixr-pc.3p+v]   VG G G G   G GV11011101VDD V2V4V
+V            V.3p <- .3p+1                V             V11100001VE1 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vb>b .iu     V.iTN-pc.3p];.iVr-pc.3p+v]   VG G G G   G GV11111101VFD V2V4V
+V            V.3p <- .3p+1                V             V11100001VE1 V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+XWWRWWWRWWWRWWWRWWWY
+V  V00 V01 V10 V11 V
+TWWUWWWUWWWUWWWUWWWS
+V>>V.ucV.vAV.yNV.faV
+ZWWQWWWQWWWQWWWQWWW[
+ Ln yf-v ba b>b .bav bAA aAbgy b8v yNALgvu
+
+2O-C Sanyk mn6v instrbytions                                        HHCR
+
+     O-C hIPXK MPZ, INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION           V FLAGS       V OPCODE     V V V
+V            V                              V             TWWWWWWWWRWWWS V V
+V            V                              VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vmn6v+.yN]]xQV[.g+ehl+.yN];.g+hl.g+QH       VG G 0 U   0 GV11101101VED V2V4V
+V[.g+]]xQ    V.hlhl.yN]1H.uchl.uclH         V      *H     V10100000VA0 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vmn6v+.yN**xQV[.g+ehl+.yN];.g+1.g+lH        VG G 0 U   0 GV11101101VED V2V4V
+V[.g+**x     V.hlhl.yNl1H.uchl.uclH         V      *H     V10101000VS[ V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vmn6vm c.yN]]Vrvfv8tq[.g+ehl+.yN];.g+hl.g+QHVG G 0 0   0 GV11101101VED V2V4V
+V ;*[.g+]]x  V.hlhl.yN]1H.uchl.uclH1isGoN.uc=0V           V10110000VT0 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWQWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vmn6vm c.yN]]Vrvfv8tq[.g+ehl+.yN];.g+hl.g+lHVG G 0 0   0 GV11101101VED V2V4V
+V ;*[.g+**x  V.hlhl.yNl1H.uchl.uclH1isGoN.uc=0V           V10111000VW[ V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+*H w+;i .uclH N 0 Gs wGAA u; b;s sr 0 ;A-v Gs wGAA u; b;s sr 0
+
+A.3  hIPXK mEAnXT INSTRUCTION
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vl8q         V.el+.yN];.hlhl.yN]1         VU U U U   1 GV11101101VED V2V4V
+V  .b*[.yN]]xV.uchl.uclH                  V  Q1  *H     V10100001VO1 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vl8q         V.el+.yN];.hlhl.yNlH         VU U U U   1 GV11101101VED V2V4V
+V  .b*[.yN**xV.uchl.uclH                  V  Q1  *H     V10101001V89 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vl8q8        Vrvfv8tq.el+.yN];.hlhl.yN]1  VU U U U   1 GV11101101VED V2VCV
+V   .b*[yN]]xV.uchl.uclH1isGoN .ucw0      V  Q1  *H     V10110001VB1 V V V
+V            V  nq .bQ+.yN]               V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vl8q8        Vrvfv8tq.el+.yN];.hlhl.yNlH  VU U U U   1 GV11101101VED V2VCV
+V   .b*[yN**xV.uchl.uclH1isGoN .ucw0      V  Q1  *H     V10111001Vr9 V V V
+V            V  nq .bQ+.yN]               V             V        V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+ *H w+;i uclHw0 Gs wGAA u; b;s sr 0 ;A-v Gs wGAA u; b;s sr 0
+ Q1 w+;i .bQ+.yN] Gs wGAA u; b;s sr 0 ;A-v Gs wGAA u; b;s sr 
+
+   SN5  YEF8MPFMBATION INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWWY 
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V  V
+V            V                            V             TWWWWWWWWRWWWS V  V
+V            V                            VS Z H P/v N CV76543210VHEXVBVC V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWWS
+Vmowou .b*9  V.hlhl.o[9                   V0 U G 0   G UV11101101VED V2V14V
+V            V                            V             V11 9 001V   V V  V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWWS
+Vmowoy .hlu--V.vA:.hlhl.yN[--             V0 U G 0   G UV11101101VED V2V36V
+V            V                            V             V11--0011V   V V  V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQWW[
+Wi+. +.v mowou >onytion w+;i .uT.yT.ST.v b8v vdywoSvS ba 8 +.v o-Tkv yTn'+ u;
+  v-b8TnuvSd-(???)
+Wi+. +.v mowo> >onytion +.vi .uck.3p b8v vdywoSvS ba -- +.v o-Tkv yTn'+ u;
+  v-b8TnuvSd-(???)
+l111                                    nppSudie n TK00 instrbytion yNArtR
+P?K    ODD INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll .b*9    V.ehl.of9                    VU U U 7   0 UV10000 8 V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll .b*q    V.ehl.ofq                    VU U U V   0 UV11011101VDD V2V2V
+V            V                            V             V10000 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll .b*q    V.ehl.ofq                    VU U U V   0 UV11111101VFD V2V2V
+V            V                            V             V10000 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll .b*+.yN]V.ehl.of+.yN]                VU U U V   0 UV10000110VY4 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll         V.ehl.of+.spf ]              VU U U V   0 UV11011101VDD VEVCV
+V .b*+.spf ] V                            V             V10000110VY4 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll         V.ehl.of+.s,f ]              VU U U V   0 UV11111101VFD VEVCV
+V .b*+.s,f ] V                            V             V10000110VY4 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll n*?     V.ehl.of?                    VU U U V   0 UV11000110Vq4 V2V2V
+V            V                            V             V<- ?  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS 
+VnllK .b.9   V.ehl.of9fC                  VU U U V   0 UV10001 9 V   V1V1V
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    VU U U V   0 UV11111101VFD V2V2V
+V            V                            V             V10001 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnlle.b*+.yN]V.ehl.of+.yN]fC              VU U U V   0 UV10001110VY7 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll*        V.ehl.of+.spf ]fC            VU U U V   0 UV11011101VDD VEVCV
+V .b*+.spf ] V                            V             V10001110VY7 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll*        V.ehl.of+.s,f ]fC            VU U U V   0 UV11111101VFD VEVCV
+V .b*+.s,f ] V                            V             V10001110VY7 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VnllK .b*?   V.ehl.of?fC                  VU U U V   0 UV11001110Vq7 V2V2V
+V            V                            V             V<- ?  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VnllK .hlu-- V.hlhl.yN]--fC               VU U ) V   0 UV11101101VED V2V2V
+V            V                            V             V01--1010V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll .hlu--  V.hlhl.yN]--                 VG G C G   0 UV00--1001V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll .o,2pq  V.o,hl.spfpq                 VG G C G   0 UV11011101VDD V2V2V
+V            V                            V             V00qq1001V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vnll .s<o+9  V.s<hl.s<p+9                 VG G C G   0 UV11111101VFD V2V2V
+V            V                            V             V00991001V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+lP?K ODD INSTRUCTIONS                                           YY3R
+
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u 9       V9[h9<1                      VU U U V   0 GV00 9 100V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u q       Vq[hq<1                      VU U U V   0 GV11011101VDD V2V2V
+V            V                            V             V00 q 100V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u q       Vq9[q<1                      VU U U V   0 GV11111101VFD V2V2V
+V            V                            V             V00 q 100V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u +.yN]   V+.yN]h9+.yN]f1              VU U U V   0 GV00110100V45 V1V5V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u +.spf ] V+.spf ]h9+.spf ]f1          VU U U V   0 GV11011101VDD VEVvV
+V            V                            V             V00110100V45 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u +.s,f ] V+.s,f ]h9+.s,f ]f1          VU U U V   0 GV11111101VFD VEVvV
+V            V                            V             V00110100V45 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u --      V--5l--f1                    VG G G G   G GV00--0011V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u .sp     V.o,hl.spf1                  VG G G G   G GV11011101VDD V2V2V
+V            V                            V             V00100011V2I V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.)u .s,     V.o<hl.s<p1                  VG G G G   G GV11111101VFD V2V2V
+V            V                            V             V00100011V2I V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+XWWRWWWRWWWRWWWRWWWY
+V  V00 V01 V10 V11 V
+TWWUWWWUWWWUWWWUWWWS
+V))V.;oV.-rV.hlV.)9V
+TWWUWWWUWWWUWWWUWWWS
+V99V.;oV.-rV.s5V.)9V
+TWWUWWWUWWWUWWWUWWWS
+VNNV.;oV.-rV.s<V.)9V
+ZWWQWWWQWWWQWWWQWWW[
+XWRWWWWRWWWWRWWWWRWWWWRWWWWRWWWWWRWWWWRWWWWY
+V V000 V001 V010 V011 V100 V101  V110 V111 V
+TWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWWUWWWWUWWWWS
+V9V    V    V    V    V.s5hV.s5l V    V    V
+TWUWWWWUWWWWUWWWWUWWWWUWWWWUWWWWWUWWWWUWWWWS
+V+V    V    V    V    V.s<hV.s<l V    V    V
+ZWQWWWWQWWWWQWWWWQWWWWQWWWWQWWWWWQWWWWQWWWW[
+l33?                                   APPC6FM) A X?00 INSTRUCTION CBXRTR
+   A.:  MFCXFASF INSTRUCTION
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votu .b*9    V.eh.e]9                     VU U U V   1 UV10010 9 V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votu .b*q    V.ehl.olq                    VU U U V   1 UV11011101VDD V2V2V
+V            V                            V             V10010 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votu .b*q    V.ehl.olq                    VU U U V   1 UV11111101VFD V2V2V
+V            V                            V             V10010 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votu .b*+.yN]V.ehl.ol+.yN]                VU U U V   1 UV10010110V?6 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votu .b*     V.ehl.o9+.spf ]              VU U U V   1 UV11011101VDD VEVCV
+V  +.spf ]   V                            V             V10010110V?6 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votu .b*     V.ehl.o9+.s,f ]              VU U U V   1 UV11111101VFD VEVCV
+V  +.s,f ]   V                            V             V10010110V?6 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votu .b*;    V.ehl.o9;                    VU U U V   1 UV11010110V+6 V2V2V
+V            V                            V             V<- ;  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu .b*9   V.ehl.o99C                  VU U U V   1 UV10011 9 V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu .b*q   V.ehl.olq9C                  VU U U V   1 UV11011101VDD V2V2V
+V            V                            V             V10011 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu .b*q   V.ehl.olq9C                  VU U U V   1 UV11111101VFD V2V2V
+V            V                            V             V10011 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu .b*    V.ehl.o9+.yN]9C              VU U U V   1 UV10011110V?3 V1V2V
+V     +.yN]  V                            V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu .b*    V.Lhl.L9+.YHfq]fu            VU U U V   1 UV11011101VDD VEVCV
+V   +.spf ]  V                            V             V10011110V?3 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu .b*    V.ehl.o9+.s,f ]fu            VU U U V   1 UV11111101VFD VEVCV
+V   +.s,f ]  V                            V             V10011110V?3 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu b*;    V.ehl.o9;9C                  VU U U V   1 UV11011110V+3 V2V2V
+V            V                            V             V<- ;  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Votuu .LYh-- V.hlhl.hll--9C               VU U K V   1 UV11101101V2D V2V2V
+V            V                            V             V0U--0010V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+LqY10 MFCXFASF INSTRUCTION                                      HH<R
+
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro 9       V9Q991                      VU U U V   1 GV00 9 101V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro q       V9Clq91                      VU U U V   1 GV11011101VDD V2V2V
+V            V                            V             V00 q 101V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro q       V+llq91                      VU U U V   1 GV11111101VFD V2V2V
+V            V                            V             V00 q 101V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro +.yN]   V+.yN]l9+.yN]91              VU U U V   1 GV00110101VE6 V1V5V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro +.spf ] V+.spf ]l9+.spf ]91          VU U U V   1 GV11011101VDD VEVvV
+V            V                            V             V00110101VE6 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro +.s,f ] V+.s,f ]l9+.s,f ]91          VU U U V   1 GV11111101VFD VEVvV
+V            V                            V             V00110101VE6 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro --      V--<l--91                    VF G G G   G GV00--1011V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro .sp     V.sphl.sp91                  VF G G G   G GV11011101VDD V2V2V
+V            V                            V             V00101011V2Q V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vbro .s,     V.s,hl.s,91                  VF G G G   G GV11111101VFD V2V2V
+V            V                            V             V00101011V2Q V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+
+qY10  COMPqRLbON INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.wy .b*9    V.eQ9                        VU U U V   1 UV10111 9 V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.wy .b*9    V.eQq                        VU U U V   1 UV11011101VDD V2V2V
+V            V                            V             V10111 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.wy .b*q    V.eQq                        VU U U V   1 UV11111101VFD V2V2V
+V            V                            V             V10111 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.wy .b*+.yN]V.eQ+.yN]                    VU U U V   1 UV10111110VX3 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.wy .b*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 V             V10111110VX3 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.wy .b*;    V.e-;                        VU U U V   1 UV11111110VF3 V2V2V
+V            V                            V             V<- ;  -IV   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+L 560                                 APP27qYC A R)00 INSTRUCTION CBARTR
+
+qY11 MOGIC OP2AqTION INSTRUCTION
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.el .b*9    V.ehl.o/\9                   VU U 1 P   0 0V10100 9 V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.el .b*q    V.ehl.o/\q                   VU U 1 P   0 0V11011101VDD V2V2V
+V            V                            V             V10100 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.el .b*q    V.ehl.o/\q                   VU U 1 P   0 0V11111101VFD V2V2V
+V            V                            V             V10100 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.el .b*+.yN]V.ehl.o/\+.yN]               VU U 1 P   0 0V10100110VI7 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.el .b*     V.ehl.o/\+.spf ]             VU U 1 P   0 0V11011101VDD VEV6V
+V    +.spf ] V                            V             V10100110VI7 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.el .b*     V.ehl.o/\+.s,f ]             VU U 1 P   0 0V11111101VFD VEV6V
+V    +.s,f ] V                            V             V10100110VI7 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V.el .b*;    V.ehl.o/\;                   VU U 1 P   0 0V11100110VX7 V2V2V
+V            V                            V             V<- ;  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V89  .b*9    V.ehl.oX09                   VU U < P   0 0V10110 9 V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V89 .b*q     V.ehl.oX0q                   VU U < P   0 0V11011101VDD V2V2V
+V            V                            V             V10110 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V89 .b*q     V.ehl.oX0q                   VU U < P   0 0V11111101VFD V2V2V
+V            V                            V             V10110 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V89 .b*+.yN] V.ehl.oX0+.yN]               VU U < P   0 0V10110110VX7 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V89 .b*      V.ehl.oX0+.spf ]             VU U < P   0 0V11011101VDD VEV6V
+V   +.spf ]  V                            V             V10110110VX7 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V89 .b*      V.ehl.oX0+.s,f ]             VU U < P   0 0V11111101VFD VEV6V
+V   +.s,f ]  V                            V             V10110110V   V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V89 .b*;     V.ehl.oX0;                   VU U < P   0 0V11110110VE7 V2V2V
+V            V                            V             V<- ;  S V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VF89 .b*9    V.ehl.oXW09                  VU U < P   0 0V10101 9 V   V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VF89 .b*q    V.ehl.oXW0q                  VU U < P   0 0V11011101VDD V2V2V
+V            V                            V             V10101 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VF89 .b*q    V.ehl.oXW0q                  VU U < P   0 0V11111101VFD V2V2V
+V            V                            V             V10101 q V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VF89 .b*+.yN]V.ehl.oXW0+.yN]              VU U < P   0 0V10101110VI3 V1V2V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VF89 .b*     V.ehl.oXW0+.spf ]            VU U < P   0 0V11011101VDD VEV6V
+V   +.spf ]  V                            V             V10101110VI3 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VF89 .b*     V.ehl.oXW0+.s,f ]            VU U < P   0 0V11111101VFD VEV6V
+V   +.s,f ]  V                            V             V10101110VI3 V V V
+V            V                            V             V<- l  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VF89 .b*;    V.ehl.oXW0;                  VU U < P   0 0V11101110VI3 V2V2V
+V            V                            V             V<- ;  -IV   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+LqY1< NOb OP2AqTION INSTRUCTION                                 yB<R
+
+      AY1< NOb OP2AqTION INSTRUCTION
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V?fn ?*9     Vz<QNOT 9{?}                 Vt U 1 t   0 GV11001011VCB V2V2V
+V            V                            V             V01 ?  9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V?fn ?*+.yN] Vz<QNOT +.yN]{?}             Vt U 1 t   0 GV11001011VCB V2V2V
+V            V                            V             V01 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V?fn ?*      Vz<QNOT +.spf ]{?}           Vt U 1 t   0 GV11011101VDD V6V6V
+V  +.spf ]   V                            V             V11001011VCB V V V
+V            V                            V             V<- l  -IV   V V V
+V            V                            V             V01 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V?fn ?*      Vz<QNOT +.s,f ]{?}           Vt U 1 t   0 GV11111101VFD V6V6V
+V  +.s,f ]   V                            V             V11001011VCB V V V
+V            V                            V             V<- l  -IV   V V V
+V            V                            V             V01 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VKrn ?*9     V9{?}<-1                     Vt G G G   G GV11001011VCB V2V2V
+V            V                            V             V11 ?  9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VKrn ?*+.yN] V+.yN]{?}<-1                 Vt G G G   G GV11001011VCB V2V6V
+V            V                            V             V11 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VKrn ?*      V+.spf ]{?}<-1               Vt G G G   G GV11011101VDD V6V7V
+V  +.spf ]   V                            V             V11001011VCB V V V
+V            V                            V             V<- l  -IV   V V V
+V            V                            V             V11 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VKrn ?*      V+.s,f ]{?}<-1               Vt G G G   G GV11111101VFD V6V7V
+V  +.s,f ]   V                            V             V11001011VCB V V V
+V            V                            V             V<- l  -IV   V V V
+V            V                            V             V11 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VwN9 ?*9     V9{?}<-0                     Vt G G G   G GV11001011VCB V2V2V
+V            V                            V             V10 ?  9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VwN9 ?*+.yN] V+.yN]{?}<-0                 Vt G G G   G GV11001011VCB V2V6V
+V            V                            V             V10 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VwN9 ?*      V+.spf ]{?}<-0               Vt G G G   G GV11011101VDD V6V7V
+V  +.spf ]   V                            V             V11001011VCB V V V
+V            V                            V             V<m l  -IV   V V V
+V            V                            V             V10 ? 110V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VwN9 ?*      V+.s,f ]{?}<-0               Vt G G G   G GV11111101VFD V6V7V
+V  +.s,f ]   V                            V             V11001011VCB V V V
+V            V                            V             V<- l  -IV   V V V
+V            V                            V             V10 ? 110V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+L4.m                                    A//EO7MX A P\00 INSTRUCTION CzPRTR
+AY1K POTAT7 INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth} o       VChl.osN,x.ehl.oc2eos0}<-C   Vt G 0 G   0 SV00000111V0. V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht o       VChl.os-,x.ehl.o72eos0}<-C   Vt G 0 G   0 SV00001111V0A V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth,+ o      Vw)8<-C2Chl.osN,x.ehl.oc2e   Vt G 0 G   0 SV00010111V1. V1V1V
+V            V    .os-,lcw)8              V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht+ o      Vw)8<-C2Chl.os-,x.ehl.o72e   Vt G 0 G   0 SV00011111V1A V1V1V
+V            V    .os0}<-w)8              V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+ 9       VChl9s0}                     VU U < P   0 SV11001011VCB V2V2V
+V            Vslsc2ess-,lcG               V             V00000 9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+ +.yN]   VChl+.yN]{0}                 VU U < P   0 SV11001011VCB V2V6V
+V            V+.yN]hl+.yN]c2e+.yN]{0}<-C  V             V00000110V0H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+ +.spf ] VChl+.spf ]{0}               VU U < P   0 SV11011101VDD V6V7V
+V            V+.spf ]hl+.spf ]cm          V             V        VCB V V V
+V            V+.spf ]{0}<-C               V             V<- l  -IV   V V V
+V            V                            V             V00000110V0H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+ +.s,f ] VChl+.s,f ]{0}               VU U < P   0 SV11111101VFD V6V7V
+V            V+.s,f ]hl+.s,f ]cm          V             V        VCB V V V
+V            V+.s,f ]{0}<-C               V             V<- l  -IV   V V V
+V            V                            V             V00000110V0H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht 9       VChl9s0}                     VU U < P   0 SV11001011VCB V2V2V
+V            Vsl}s72e9s0}<-C              V             V        V   V V V
+V            V                            V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht +.yN]   VChl+.yN]{0}                 VU U < P   0 SV11001011VCB V2V6V
+V            V+.yN]hl+.yN]72e+.yN]{0}<-C  V             V00001110V0X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht +.spf ] VChl+.spf ]{0}               VU U < P   0 SV11011101VDD V6V7V
+V            V+.spf ]hl+.spf ]Bm          V             V        VCB V V V
+V            V+.spf ]{0}<-C               V                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           V
+V            V                            V             V00001110V0H V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+LAY1K   POTAT7 INSTRUCTIONS                                            V<PR
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth,+ 9      Vw)8<-C2Chl9s0}              VU U < P   0 SV11001011VCB V2V2V
+V            Vsl}sc2ess-,lcw)8            V             V00010 9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+P +.yN]  Vw)8<-C2Chl+.yN]{0}          VU U < P   0 SV11001011VCB V2V6V
+V            V+.yN]hl+.yN]c2e+.yN]{0}<-w)8V             V00010110V1H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+P +.spf ]Vw)8<-C                      VU U < P   0 SV11011101VDD V6V7V
+V            VChl+.spf ]{0}               V             V11001011VCB V V V
+V            V+.spf ]hl+.spf ]cm          V             V<- ?  -IV   V V V
+V            V+.spf ]{0}<-w)8             V             V00010110V1H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+P +.s,f ]Vw)8<-C                      VU U < P   0 SV11111101VFD V6V7V
+V            VChl+.s,f ]{0}               V             V11001011VCB V V V
+V            V+.s,f ]hl+.s,f ]cm          V             V<- ?  -IV   V V V
+V            V+.s,f ]{0}<-w)8             V             V00010110V1H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht+ 9      Vw)8<-C2Chl9s0}              VU U < P   0 SV11001011VCB V2V2V
+V            Vsl}s72e9s0}<-w)8            V             V00011 9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht+ +.yN]  Vw)8<-C2Chl+.yN]{0}          VU U < P   0 SV11001011VCB V2V6V
+V            V+.yN]hl+.yN]72e+.yN]{0}<-w)8V             V00011110V1X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VthtP +.spf ]Vw)8<-C                      VU U < P   0 SV11011101VDD V6V7V
+V            VChl+.spf ]{0}               V             V11001011VCB V V V
+V            V+.spf ]hl+.spf ]Bm          V             V<- ?  -IV   V V V
+V            V+.spf ]{0}<-w)8             V             V00011110V1H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtht+ +.s,f ]Vw)8<-C                      VU U < P   0 SV11111101VFD V6V7V
+V            VChl+.s,f ]{0}               V             V11001011VCB V V V
+V            V+.s,f ]hl+.s,f ]Bm          V             V<- ?  -IV   V V V
+V            V+.s,f ]{0}<-w)8             V             V00011110V1X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VtheD +.yN]  Vw)8<-.os-..5}               VU U < P   0 GV11101101VTD V2V6V
+V            V.os-..5}hl+.yN]{8..0}       V             V11101111VpA V V V
+V            V+.yN]{8..0}hl+.yN]{0..5}    V             V        V   V V V
+V            V+.yN]{0..5}<-w)8            V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vth+D +.yN]  Vw)8<-.os-..5}               VU U < P   0 GV11101101VTD V2V6V
+V            V.os-..5}hl+.yN]{8..0}       V             V11100111Vp. V V V
+V            V+.yN]{8..0}hl+.yN]{0..5}    V             V        V   V V V
+V            V+.yN]{0..5}<-w)8            V             V        V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+Lly+                                    /DD6EoO9 / 4K00 INSTRUCTION Cc4RTLlLlAY1ECU4O2T INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<- 9       VChl9s0}                     VU U < P   0 SV11001011VCB V2V2V
+V*<-)        Vsl}sc2                      V             V00100 9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<- +.yN]   VChl+.yN]{0}                 VU U < P   0 SV11001011VCB V2V6V
+V*<-)        V+.yN]hl+.yN]c2              V             V00100110V2H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<- +xspf ] VChl+.spf ]{0}               VU U < P   0 SV11011101VDD V6V7V
+V*<-)        V+.spf ]hl+.spf ]cm          V             V11001011VCB V V V
+V            V                            V             V<- f  -IV   V V V
+V            V                            V             V00100110V2H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<- +xs,f ] VChl+.s,f ]{0}               VU U < P   0 SV11111101VDD V6V7V
+V*<-)        V+.s,f ]hl+.s,f ]cm          V             V11001011VCB V V V
+V            V                            V             V<- f  -IV   V V V
+V            V                            V             V00100110V2H V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<y 9       VChl9s0}                     VU U < P   0 SV11001011VCB V2V2V
+V            Vsl}s72                      V             V00111 9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<y +.yN]   VChl+.yN]{0}                 VU U < P   0 SV11001011VCB V2V6V
+V            V+.yN]hl+.yN]72              V             V00111110V4X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<y +xspf ] VChl+.spf ]{0}               VU U < P   0 SV11011101VDD V6V7V
+V            V+.spf ]hl+.spf ]Bm          V             V11001011VCB V V V
+V            V                            V             V<- f  -IV   V V V
+V            V                            V             V00111110V4X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<y +xs,f ] VChl+.s,f ]{0}               VU U < P   0 SV11111101VDD V6V7V
+V            V+.s,f ]hl+.s,f ]Bm          V             V11001011VCB V V V
+V            V                            V             V<- f  -IV   V V V
+V            V                            V             V00111110V4X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<y) 9      Vw)8<-9s0}2Chl9s0}           VU U < P   0 SV11001011VCB V2V2V
+V            Vsl}s72e9s0}<-w)8            V             V00101 9 V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<yh +.yN]  Vw)8<-+.yN]{0}2Chl+.yN]{0}   VU U < P   0 SV11001011VCB V2V2V
+V            V+.yN]hl+.yN]72e+.yN]{0}<-w)8V             V00101110V2X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<y) +.spf ]Vw)8<-+.spf ]{0}             VU U < P   0 SV11011101VDD V6V7V
+V            VChl+.spf ]{0}               V             V11001011VCB V V V
+V            V+.spf ]hl+.spf ]Bm          V             V<- f  -IV   V V V
+V            V+.spf ]{0}<-w)8             V             V00101110V2X V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<y) +.s,f ]Vw)8<-+.s,f ]{0}             VU U < P   0 SV11111101VFD V6V7V
+V            VChl+.s,f ]{0}               V             V11001011VCB V V V
+V            V+.s,f ]hl+.s,f ]Bm          V             V<- f  -IV   V V V
+V            V+.s,f ]{0}<-w)8             V             V00101110V2X V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+TU\ *<- Iq*)y:?)Ioq Pqs )U\ *<-q Iq*)y:?)Ioq Py\ \N\?)-+ )U\ *P8\ Pqs :*\ )U\ 
+T*P8\ o1\yPqsm
+LAY19  B5AElc INSTRUCTIONS                                              4}A,LlLlAY1} B5AElc INSTRUCTIONS
+XWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vts 99       V.q-lw99                     VG G G G   G GV11000011VC3 V3V3V
+V            V                            V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vt9r 99      V?k rz0                      VG G G G   G GV11000010VCH V3V3V
+V            V.q-lw99                     V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtr 99       V?k rz0                      VG G G G   G GV11001010VCO V3V3V
+V            V.q-lw99                     V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vt9w 99      V?k wz0                      VG G G G   G GV11010010VDH V3V3V
+V            V.q-lw99                     V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtw 99       V?k wz0                      VG G G G   G GV11011010VDO V3V3V
+V            V.q-lw99                     V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtlm 99      V?k P/vz0                    VG G G G   G GV11100010VXH V3V3V
+V            V.q-lw99                     V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtl, 99      V?k P/vz0                    VG G G G   G GV11101010VHO V3V3V
+V            V.q-lw99                     V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vtl 99       V?k \z0                      VG G G G   G GV11110010VFH V3V3V
+V            V.q-lw99                     V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vty 99       V?k \z0                      VG G G G   G GV11111010VFO V3V3V
+V            V                            V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vts +.yN]    V.q-lw.yN                    VG G G G   G GV11101001V?u V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vts +.z[]    V.q-lw.z[                    VG G G G   G GV11011101VDD V2V2V
+V            V                            V             V11101001V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vts +.z)]    V.q-lw.z)                    VG G G G   G GV11111101VFD V2V2V
+V            V                            V             V11101001V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+l454                                    <vv?6DLC < 7K00 INSTRUCTION Cr7RT,LlLlXWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<\q}       V.q-lw.q-h:                  VG G G G   G GV00011000V1K V2V3V
+Vts :        V                            V             V<- :-2-IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<\q}       V?k rz0                      VG G G G   G GV00100000V20 V2V2V
+Vt9r :       V.q-lw.q-h:                  V             V<- :-2-IV   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<\q}       V?k rz0                      VG G G G   G GV00101000V2K V2V2V
+Vtr :        V.q-lw.q-h:                  V             V<- :-2-IV   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<\q}       V?k wz0                      VG G G G   G GV00110000V30 V2V2V
+Vt9w :       V.q-lw.q-h:                  V             V<- :-2-IV   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V*<\q}       V?k wz0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   WWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+LlAY14WKADD INSTRUCTIONS
+LlXWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy 99     VKl<t-2]lw.<t9pKl<t-0]lw.<t\ VG G G G   G GV11001101VTD V3V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99: -IV   V V V
+V            V                            V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy 9re99  V?k rz0                      VG G G G   G GV11000100VTX V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy re99   V?k rz0                      VG G G G   G GV11001100VTT V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy 9ze99  V?k wz0                      VG G G G   G GV11010100VrX V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy ze99   V?k wz0                      VG G G G   G GV11011100VrT V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy wQe99  V?k P/vz0                    VG G G G   G GV11100100VCX V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy w}e99  V?k P/vz0                    VG G G G   G GV11101100VCT V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy we99   V?k \z0                      VG G G G   G GV11110100VOX V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vzcyy ue99   V?k \z0                      VG G G G   G GV11111100VOT V3V3V
+V            VKl<t-2]lw.-c9pKl<t-0]lw.-c\ V             V<-99: -IV   V V4V
+V            V.<tlw.<tw9K.q-lw99          V             V<-99o -IV   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+lAY14WKADD INSTRUCTIONS                                         K66LlXWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre}         V.q-:loKl<t\K.q-9loKl<t*1]   VG G G G   G GV11001001VT+ V1V3V
+V            V.<tlw.<t*E                  V             V        V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} 9r      V?k rz0 : .q-:loKl<t\        VG G G G   G GV11000000V]0 V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} r       V?k rz0 : .q-:loKl<t\        VG G G G   G GV11001000V9K V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} 9w      V?k wz0 : .q-:loKl<t\        VG G G G   G GV11010000VO0 V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} w       V?k wz0 : .q-:loKl<t\        VG G G G   G GV11011000V]K V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} th      V?k P/vz0 : .q-:loKl<t\      VG G G G   G GV11100000V20 V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} t:      V?k P/vz0 : .q-:loKl<t\      VG G G G   G GV11101000V]K V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} t       V?k \z0 : .q-:loKl<t\        VG G G G   G GV11110000VI0 V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} u       V?k \z0 : .q-:loKl<t\        VG G G G   G GV11111000VIK V1V1V
+V            V.q-9lo.Kl<t*1]:.<tlw.<t*E   V             V        V   V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} k       V?Ok}ee8*} re}8r9            VG G G G   G GV11101101VuD VTV4V
+V            V                            V             V01001101V5D V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vre} 9       VN29 YyEgysqe MOk}ee8*}      VG G G G   G GV11101101VuD VTV4V
+V            V  re}8r9                    V             V01000101V54 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vqry y       VKl<t-2]lw.-c9pKl<t-0]lw.-c\ VG G G G   G GV11   111V]0 V1V5V
+V            V.<tlw.<tw9K.q-:locKq-9lo0   V             V  cvY   V   V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+lBXY                                    7zzeO}D+ 7 HY00 INSTRUCTION ChHRTLlBlBAY1e      INCOTZCOT}OT INSTRUCTIONSLlXWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrt lp?+t]   VlploKt]                     VG G G G   G GV11011011V]X VTV3V
+V            V                            V             Vpl 9  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrt :?K+z]   V:loKlz]                     VU U 1 /   0 GV11101101VuD VTV3V
+V            V                            V             V01 + 000V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrt K*?K+z]  Vl?loKlz]                    VU U 1 /   0 GV11101101VuD VTV3V
+V            V                            V             V01110000V40 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrt          VKleQ]lwKlz]hlclw.cw0        Vn U n n   1 GV11101101VuD VTV5V
+VKleQyy]?K+z]VleQlw.eQy0                  V  x0         V10100010Vv5 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrt          VKleQ]lwKlz]hlclw.cw0        Vn U n n   1 GV11101101VuD VTV5V
+VKleQww]?K+z]VleQlw.eQw0                  V  x0         V10101010Vvv V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrtu         V:\}\9<pKleQ]lwKlz]hlclw.cw0 Vn 0 n n   1 GV11101101VuD VTV5V
+VKleQyy]?K+z]VleQlw.eQy0cq:htQT.nz0       V             V10110010V-5 V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrtu         V:\}\9<pKleQ]lwKlz]hlclw.cw0 Vn 0 n n   1 GV11101101VuD VTV5V
+VKleQww]?K+z]VleQlw.eQw0cq:htQT.nz0       V             V10111010Vyv V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vkqh Kt]?.9  VKt]lw.9                     VG G G G   G GV11010011V]v VTV3V
+V            V                            V             Vpl 9  -IV   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vkqh K+z]w}  VKlz]9I}                     VG G G G   G GV11101101VuD VTV3V
+V            V                            V             V01 + 001V   V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vkqh         VKlz]9IKleQ]hlclw.cw0        Vn U n n   1 GV11101101VuD VTV5V
+VKlz]wKleQyy]VleQlw.eQy0                  V  x0         V10100011Vtv V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vkqh         VKlz]9IKleQ]hlclw.cw0        Vn U n n   1 GV11101101VuD VTV5V
+VKlz]wKleQww]VleQlw.eQw0                  V  x0         V10101011VtX V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vkqhu        V:\}\9<pKlz]9IKleQ]hlclw.cw0 Vn 0 n n   1 GV11101101VuD VTV5V
+VKlz]wKleQyy]VleQlw.eQy0cq:htQT.nz0       V             V10110011V+v V V3V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vkqhu        V:\}\9<pKlz]9IKleQ]hlclw.cw0 Vn 0 n n   1 GV11101101VuD VTV5V
+VKlz]wKleQww]VleQlw.eQw0cq:htQT.nz0       V             V10111011V+X V V3V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+x0 p.8T.nc0z0 1} k8T8e} }S 1 e.8e 1} k8TS
+m\}\+m\+} .o }:e e)k}e+p. the} a:Tc\ }:e n\ re(k8k}e .o (tK*?K+z] m\}(k+pk}mtaTo:p\m a]:. Se c\p+me(K Ak m*}m+'} upkk}e ac}ee }:e e)k}e+p. the} S'AdGGGi
+lAY1F 4-9 4NH<7NP INSTRUCTIONS                                          /5gLlBlBAY1Y  4-9 4NH<7NP INSTRUCTIONSLlXWWWWWWWWWWWWRWWWWWWWWWWWWWWWWWWWWWWWWWWWWRWWWWWWWWWWWWWRWWWWWWWWWWWWRWRWY
+VMNEMONIC    V INSTRUCTION ACTION         V FLAGS       V OPCODE     V V V
+V            V                            V             TWWWWWWWWRWWWS V V
+V            V                            VS Z H P/v N CV76543210VHEXVBVCV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VkKj lp      VkKjQ'} }S K:\hmp.           VU U U /   G UV00100111V27 V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V)}' lp      VlplovA1 lp                  VG G 1 G   1 GV00101111V2I V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V)K( lp      VlplovA1 lpy0                VU U U V   1 UV11101101VuD VTVTV
+V            V                            V             V01000100V55 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V)}' :       VBlovA1 C                    VG G n G   0 UV00111111V3I V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V8e} :       VBlo0                        VG G 0 G   0 1V00110111V37 V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V)}i         VvA }i8gpem29                VG G G G   G GV00000000V00 V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+VtpKh        VHPZT                        VG G G G   G GV01110110V76 V1VTV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V/e          VR::lo0                      VG G G G   G GV11110011V:v V1VTV
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+V8e          VR::lo0                      VG G G G   G GV11111011V:X V1V1V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Ve( 0        Ve2k}eeym} ut/k 0            VG G G G   G GV11101101VuD VTV3V
+V            V                            V             V01000110V56 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrm 1        Ve2k}eeym} ut/k 0            VG G G G   G GV11101101VuD VTV3V
+V            V                            V             V01010110V\6 V V V
+TWWWWWWWWWWWWUWWWWWWWWWWWWWWWWWWWWWWWWWWWWUWWWWWWWWWWWWWUWWWWWWWWUWWWUWUWS
+Vrm D        Ve2k}eeym} ut/k D            VG G G G   G GV11101101VuD VTV3V
+V            V                            V             V01011110V\u V V V
+ZWWWWWWWWWWWWQWWWWWWWWWWWWWWWWWWWWWWWWWWWWQWWWWWWWWWWWWWQWWWWWWWWQWWWQWQW[
+R(F0                                                                    LlBR(F0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         lB5n0n0   F a1} OSvUo'vog7TIONSLl  T+t .o }:e 9K/e w1rk F a1} re(k8k}e8 9ee o]:. k 9rk }:e ee(2Kh 9m}\9e8 rt +/re(k8k}e HIU w:e 12Kh89K8ppem29 k8Ti8g+2g1 k ]9ew 9r rt8k2Kmem29:(}w:e rt8k2Kmem29 9ee :wKg9 /ehKg:(}WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW(}}i8gpem29     rt8k2Kmem29          Kh2K. K,Khpt(}WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW(}IUn6Lx'         uD S0                   0G(}IUn6LxC         uD SY                   0G(}IUn6LxD         uD D0                   0G(}IUn6LxE         uD DY                   0G(}WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW(}lB5n0nD    0N a1} OSvUo'vog7TIONSLl  T+t .o }:e 9K/e w1rk 0N a1} re(k8k}e8 9ee o]:. k 9rk }:e ee(2Kh 9m}\9e8 rt+/re(k8k}e8 GY>HIU w:e 12Kh89K8ppem29 k8Ti8g+2g1 k ]9ew 9r rt8k2Kmem29:(}w:e rt8k2Kmem29 9ee :wKg9 /ehKg:(}WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW(}}i8gpem29     rt8k2Kmem29          Kh2K. K,Khpt(}WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW(}GY>HIEuHIBDC    uD SQ                   QU(}GY>HIEuHIBo/    uD :v                   QU(}WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW(}R(FD                                    L//uN:lA L 4F00 INSTR>UCTION CBF>TLlBlBGnD      OSvUo'vog7TION OgoLI WIL OF0lBlB/wY. mE2.\ 12Kh89K8ppem298 rt OF0* }:k8Tpr9HtTpp9 /e mEe(KlBlB         12KhY  pr9HtT re(lB                8+819 Rre(U:R/LlB                9(8/ k(9m:kTamlB                e.8elB                8+819 Rre(U:R'LlB                9(8/ k(9m:kTamlB                e.8elB                8+819 Rre(U:RkLlB                9(8/ k(9m:kTxmlB                e.8elB                8+819 Rre(U:R\LlB                9(8/ k(9m:kTxmlB                e.8elB                8+819 Rre(U:R1LlB                9(8/ k(9m:k9amlB                e.8elB                8+819 Rre(U:RGLlB                9(8/ k(9m:k9amlB                e.8elB                8+819 Rre(U:ReLlB                9(8/ k(9m:k9xmlB                e.8elB                8+819 Rre(U:R>LlB                9(8/ k(9m:k9xmlB                e.8elB                8+alB                2}re2kdBuOSvUKQ 8:. Tp. p2TEh\+}OlB                9(8/ kkm:kkmlB                eEElB                e}(p8lB                e}(p8lB                e}(p8lB                e}(p8lB                e}(p8lB                e}(p8lB                e}(p8lB                e}(p8lB                e}(p8lB                e}(+lBlB         12Kh0N pr9HtT re(lB                8+819 Rre(U:R/kLlB                9(8/   0(9m: 0kAmlB                e.8elB                8+819 Rre(U:R'\LlB                9(8/   0(9m:0kAmlB                e.8elBR'nD OSvUo'vog7TION OgoLI WIL OF0                                       /FALlB                8+819 Rre(U:RmaLlB                9(8/   0(9m: 08AmlB                e.8elB                8+819 Rre(U:RwDLlB                9(8/   0(9m:08AmlB                e.8elB                8+alB                2}re2kdBuOSvU+WQ 8:. Tp. p2TEh\+}OlB                9(8/    0km: 0kmlB                eEElB                e}( 8+lB                e}( 8+lB                e}( 8+lB                e}( 8+lB                e}( 8+lB                e}(+lBR(F5                                                                    LlBR                                                                    (FZLlBlB
