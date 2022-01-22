@@ -15,3 +15,9 @@ In this directory you can find a working version of the compass program register
 These are the sources of this version.
 The tool to perform the registration of the program isn't included in these sources.
 
+The sources are [licensed under GPLv2](LICENSE)
+
+## A newer version of Compass
+
+Based on the released sources the well-known MSX user and developer Konamiman created a fork containing a lot of fixes to improve the user experience for modern MSX developers.
+This fork is also hosted at [Github](https://github.com/Konamiman/Konpass/releases/tag/v1.3.0 "Konpass v1.3.0").
