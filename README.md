@@ -20,4 +20,8 @@ The sources are [licensed under GPLv2](LICENSE)
 ## A newer version of Compass
 
 Based on the released sources the well-known MSX user and developer Konamiman created a fork containing a lot of fixes to improve the user experience for modern MSX developers.
-This fork is also hosted at [Github](https://github.com/Konamiman/Konpass/releases/tag/v1.3.0 "Konpass v1.3.0").
+
+To avoid confusion and indicate that it was an improvement upon release 1.2.09, we agreed that he started numbering from 1.3 onwards.
+And for an encore: the name was changed from "**Comp**joetania's **Ass**embler" to "**Kon**amiman's **P**henomenal **Ass**embler", whose moniker sounds almost like the original.
+
+This fork is also hosted at [Github](https://github.com/Konamiman/Konpass/releases).
